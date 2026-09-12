@@ -1,0 +1,246 @@
+/* detail.css · E 详情官 · 详情页与过渡（.dt- .tr-） */
+
+/* 详情为文档内普通区块：打开时隐藏首页，关闭时还原（避免固定容器内滚动） */
+#detail{
+  position:relative;z-index:40;
+  background:var(--paper);
+  min-height:100vh;
+}
+
+/* ---------------- Hero ---------------- */
+.dt-hero{position:relative;height:min(76vh,720px);background:var(--paper-2);}
+.dt-hero .ui-img{position:absolute;inset:0;height:100%;}
+.dt-hero .ui-img img{object-position:50% 30%;}
+.dt-hero::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(10,10,10,.38) 0%,rgba(10,10,10,.06) 42%,rgba(10,10,10,.66) 100%);
+  pointer-events:none;
+}
+.dt-year{
+  position:absolute;top:clamp(150px,20vh,200px);right:var(--pad);z-index:2;
+  font-family:var(--font-disp);
+  font-size:clamp(38px,6.6vw,104px);font-weight:600;line-height:1;
+  color:rgba(255,255,255,.9);
+}
+.dt-head{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  max-width:var(--maxw);margin:0 auto;
+  padding:0 var(--pad) clamp(18px,3.6vh,40px);
+  color:#fff;
+}
+.dt-kicker{color:rgba(255,255,255,.72);margin-bottom:12px;}
+.dt-name{
+  font-family:var(--font-cn-sans);font-weight:900;
+  font-size:clamp(32px,5.6vw,84px);line-height:1.05;letter-spacing:-.015em;
+}
+.dt-name .en{
+  display:block;margin-top:10px;
+  font-family:var(--font-disp);font-weight:400;
+  font-size:clamp(13px,1.4vw,21px);color:rgba(255,255,255,.74);
+  letter-spacing:.04em;
+}
+.dt-sub{
+  margin-top:12px;color:rgba(255,255,255,.82);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
+}
+.dt-hero-cap{
+  position:absolute;right:var(--pad);bottom:clamp(14px,3vh,30px);z-index:2;
+  color:rgba(255,255,255,.55);
+}
+
+/* 页内 LOGO 与档案互链（不做全局悬浮） */
+.dt-brand{
+  position:absolute;top:clamp(16px,3vh,30px);left:var(--pad);z-index:3;
+  width:26px;display:block;
+}
+.dt-brand img{width:100%;display:block;opacity:.92;transition:opacity var(--dur-mic) var(--ease),transform var(--dur-mic) var(--ease);}
+.dt-brand:hover img{opacity:1;transform:translateY(-2px);}
+.dt-hero.is-light .dt-brand img{filter:invert(1);}
+.dt-archive-link{
+  position:absolute;top:clamp(20px,3.4vh,34px);left:calc(var(--pad) + 50px);z-index:5;
+  color:var(--link-ink,var(--g60));
+  border-bottom:1px solid var(--link-line,var(--hair));padding-bottom:2px;
+  transition:color var(--dur-mic) var(--ease),border-color var(--dur-mic) var(--ease);
+}
+.dt-archive-link:hover{color:var(--link-ink,var(--ink));border-bottom-color:var(--link-ink,var(--ink));}
+
+/* ---------------- 信息栏 ---------------- */
+.dt-body{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);}
+.dt-info{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  border-top:2px solid var(--ink);border-bottom:1px solid var(--hair);
+}
+.dt-info>div{padding:20px 14px 22px;border-right:1px solid var(--hair);}
+.dt-info>div:last-child{border-right:0;}
+.dt-info dt{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--g60);}
+.dt-info dd{
+  margin-top:8px;
+  font-family:var(--font-cn-serif);font-size:15.5px;font-weight:600;line-height:1.45;
+}
+.dt-info dd .en{display:block;font-family:var(--font-mono);font-size:10px;font-weight:400;color:var(--g60);margin-top:4px;letter-spacing:.05em;}
+
+/* ---------------- 评审辞 ---------------- */
+.dt-quote{padding:clamp(56px,9vh,116px) 0 clamp(48px,8vh,100px);max-width:880px;}
+.dt-quote .ui-quote{padding-left:22px;border-left:2px solid var(--ink);}
+/* 评审辞全文：提要之下的小字阅读段 */
+.dt-cite-full{
+  margin-top:clamp(26px,4.2vh,46px);
+  padding-top:18px;
+  border-top:1px solid var(--hair);
+  max-width:74ch;
+}
+.dt-cite-full-head{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--g40);margin-bottom:14px;font-weight:400;
+}
+.dt-cite-full p{
+  font-family:var(--font-cn-serif);
+  font-size:14px;line-height:1.95;color:var(--g60);
+}
+/* 中英逐段交替：同段内英文在上、中文紧随（正文中文统一思源黑体 Light） */
+.dt-cite-full p.p-en{margin-top:18px;}
+.dt-cite-full p.p-cn{margin-top:6px;font-family:var(--font-cn-sans);font-weight:300;color:var(--ink);}
+.dt-cite-full p:first-child{margin-top:0;}
+
+/* ---------------- 代表作 ---------------- */
+.dt-works-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  border-top:1px solid var(--hair);padding-top:18px;
+}
+.dt-works-title{
+  font-family:var(--font-cn-serif);font-size:clamp(19px,2.1vw,28px);font-weight:700;
+  display:flex;align-items:baseline;gap:14px;
+}
+.dt-work{margin-top:clamp(28px,5vh,56px);}
+.dt-work--full .ui-img{aspect-ratio:16/10;}
+.dt-work--half{width:min(70%,860px);margin-left:auto;}
+.dt-work--half .ui-img{aspect-ratio:4/3;}
+.dt-work--half .dt-work-cap{flex-direction:row-reverse;}
+.dt-work-cap{
+  display:flex;justify-content:space-between;gap:18px;
+  padding-top:14px;
+}
+.dt-work-title{font-family:var(--font-cn-serif);font-size:clamp(17px,1.8vw,23px);font-weight:700;}
+.dt-work-title .no{font-family:var(--font-mono);font-size:11px;color:var(--g60);margin-right:10px;letter-spacing:.08em;}
+.dt-work-title .en{display:block;margin-top:5px;font-family:var(--font-mono);font-size:10.5px;font-weight:400;color:var(--g60);letter-spacing:.05em;}
+.dt-work-by{margin-top:8px;font-family:var(--font-mono);font-size:10.5px;color:var(--ink);}
+.dt-work-note{
+  max-width:62ch;margin-top:14px;
+  font-family:var(--font-cn-serif);font-size:14.5px;line-height:1.9;color:var(--ink);
+}
+.dt-work-credit{font-family:var(--font-mono);font-size:9.5px;color:var(--g40);text-align:right;line-height:1.6;}
+
+/* 占位（素材未齐的届次） */
+.ui-ph{
+  aspect-ratio:16/10;
+  border:1px solid var(--hair);
+  background:repeating-linear-gradient(135deg,var(--paper) 0 14px,var(--band) 14px 28px);
+  display:flex;align-items:center;justify-content:center;
+}
+.ui-ph span{font-family:var(--font-mono);font-size:10.5px;color:var(--g60);letter-spacing:.14em;text-transform:uppercase;background:var(--paper);padding:6px 12px;}
+
+/* ---------------- 冷知识 / 导航 ---------------- */
+.dt-trivia{
+  margin-top:clamp(48px,8vh,96px);
+  border-top:1px solid var(--hair);
+  padding:26px 0;
+  max-width:760px;
+}
+.dt-trivia b{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g60);display:block;margin-bottom:10px;}
+.dt-trivia p{font-family:var(--font-cn-serif);font-size:14.5px;line-height:1.9;}
+
+.dt-nav{
+  margin-top:clamp(40px,7vh,84px);
+  border-top:2px solid var(--ink);
+  display:flex;justify-content:space-between;gap:24px;
+  padding:30px 0 clamp(60px,10vh,120px);
+}
+.dt-nav a{
+  text-decoration:none;max-width:46%;
+  transition:opacity var(--dur-mic) var(--ease);
+}
+.dt-nav a:hover{opacity:.55;}
+.dt-nav .dir{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;color:var(--g60);text-transform:uppercase;margin-bottom:10px;}
+.dt-nav .who{font-family:var(--font-cn-serif);font-size:clamp(17px,2.2vw,30px);font-weight:700;line-height:1.25;}
+.dt-nav .who em{font-style:normal;font-family:var(--font-display);color:var(--g60);margin-right:12px;}
+.dt-nav .next{text-align:right;}
+
+/* 关闭按钮 */
+.dt-close{
+  position:fixed;top:18px;right:18px;z-index:60;
+  padding:9px 15px;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;
+  background:rgba(10,10,10,.3);
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:2px;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:background var(--dur-mic) var(--ease);
+}
+.dt-close:hover{background:rgba(10,10,10,.65);}
+.dt-page.is-light .dt-close{color:var(--ink);border-color:var(--g25);background:rgba(250,250,248,.7);}
+
+/* 内容入场 stagger（enter 由 transition.js 加在 #detail 上） */
+.dt-reveal{opacity:0;transform:translateY(14px);}
+#detail.enter .dt-reveal{
+  animation:dtUp .72s var(--ease) both;
+  animation-delay:calc(var(--i,0)*40ms);
+}
+@keyframes dtUp{
+  from{opacity:0;transform:translateY(14px);}
+  to{opacity:1;transform:none;}
+}
+
+/* 双得主的 Hero 名字排布 */
+.dt-name .dt-name-sub{
+  display:block;margin-top:14px;
+  font-size:.52em;color:rgba(255,255,255,.86);
+}
+
+/* 人像 Hero：左图右文（竖构图肖像的编辑器式排布） */
+.dt-hero.is-portrait{background:var(--paper);}
+.dt-hero.is-portrait::after{display:none;}
+.dt-hero.is-portrait .ui-img{right:auto;width:44%;}
+.dt-hero.is-portrait .ui-img img{object-position:50% 18%;}
+.dt-hero.is-portrait .dt-head{
+  left:44%;right:0;bottom:auto;top:50%;
+  transform:translateY(-50%);
+  color:var(--ink);
+  padding-left:clamp(24px,3.4vw,56px);
+}
+.dt-hero.is-portrait .dt-year{color:rgba(10,10,10,.16);}
+.dt-hero.is-portrait .dt-kicker,
+.dt-hero.is-portrait .dt-sub{color:var(--g60);}
+.dt-hero.is-portrait .dt-name .en{color:var(--g60);}
+.dt-hero.is-portrait .dt-hero-cap{color:var(--g60);}
+
+/* 浅色 Hero（无影像的届次） */
+.dt-hero.is-light{
+  background:var(--paper);
+  border-bottom:1px solid var(--hair);
+  height:min(52vh,520px);
+  display:flex;align-items:flex-end;
+}
+.dt-hero.is-light::after{display:none;}
+.dt-hero.is-light .dt-head{position:relative;color:var(--ink);width:100%;}
+.dt-hero.is-light .dt-year{color:rgba(10,10,10,.16);}
+.dt-hero.is-light .dt-kicker,
+.dt-hero.is-light .dt-sub{color:var(--g60);}
+.dt-hero.is-light .dt-name .en{color:var(--g60);}
+
+/* ---------------- 过渡遮罩（transition.js） ---------------- */
+.tr-veil{
+  position:fixed;z-index:50;
+  background:var(--paper);
+  will-change:transform;
+  pointer-events:none;
+}
+
+/* ---------------- 响应式 ---------------- */
+@media (max-width:860px){
+  .dt-info{grid-template-columns:repeat(2,1fr);}
+  .dt-info>div{border-bottom:1px solid var(--hair);}
+  .dt-work--half{width:100%;}
+  .dt-work--half .dt-work-cap{flex-direction:row;}
+  .dt-hero{height:64vh;}
+}

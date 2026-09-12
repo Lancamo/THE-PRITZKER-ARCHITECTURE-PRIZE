@@ -1,0 +1,106 @@
+{
+  "note": "详情页数据（样板 3 届：2012 / 2004 / 1988）。其余届次由 store 回退为基础信息，文案标注『完整档案整理中』。",
+  "dossiers": {
+    "2012": {
+      "firm": "业余建筑工作室 Amateur Architecture Studio（与陆文宇共同主持）",
+      "portrait": "assets/portraits/2012-wang-shu.jpg",
+      "portraitCredit": "The Pritzker Architecture Prize（官网肖像，非商业展示）",
+      "citation": {
+        "cn": "正如所有伟大的建筑一样，王澍的作品能够超越争论，并演化成扎根于其历史背景、永不过时甚至具世界性的建筑。",
+        "en": "As with any great architecture, Wang Shu's work is able to transcend that debate, producing an architecture that is timeless, deeply rooted in its context and yet universal.",
+        "source": "Jury Citation, The Pritzker Architecture Prize 2012"
+      },
+      "works": [
+        {
+          "title_cn": "宁波博物馆",
+          "title_en": "Ningbo Museum",
+          "city": "宁波",
+          "country": "中国",
+          "completed": "2008",
+          "photo": "assets/works/2012-ningbo-museum.jpg",
+          "credit": "Foto: Wikimedia Commons · CC BY-SA",
+          "note": "回收旧砖瓦砌筑的「瓦爿墙」，一座用废墟记忆构筑的城市地标。"
+        },
+        {
+          "title_cn": "中国美术学院象山校区",
+          "title_en": "China Academy of Art, Xiangshan Campus",
+          "city": "杭州",
+          "country": "中国",
+          "completed": "2007",
+          "photo": "assets/works/2012-xiangshan.jpg",
+          "credit": "Foto: Wikimedia Commons · CC BY-SA",
+          "note": "依山而建、曲折如村落的美院校园，让建筑成为山水的一部分。"
+        }
+      ],
+      "trivia": "「业余建筑工作室」之名来自王澍的自况——他自称『业余建筑师』，却以回收的旧砖瓦构建出最专业的诗意；他也是首位在中国本土接受建筑教育的获奖者。"
+    },
+    "2004": {
+      "firm": "Zaha Hadid Architects（扎哈·哈迪德建筑事务所）",
+      "portrait": "assets/portraits/2004-zaha-hadid.jpg",
+      "portraitCredit": "The Pritzker Architecture Prize（官网肖像，非商业展示）",
+      "citation": {
+        "cn": "她走向世界认可的道路是一场英雄式的奋斗，她不可阻挡地跻身行业最高之列。每一件新作都比上一件更大胆，她原创力的源泉似乎永无止境。",
+        "en": "Her path to worldwide recognition has been a heroic struggle as she inexorably rose to the highest ranks of the profession. Each new project is more audacious than the last and the sources of her originality seem endless.",
+        "source": "Jury Citation, The Pritzker Architecture Prize 2004"
+      },
+      "works": [
+        {
+          "title_cn": "萨拉戈萨桥",
+          "title_en": "Bridge Pavilion",
+          "city": "萨拉戈萨",
+          "country": "西班牙",
+          "completed": "2008",
+          "photo": "assets/works/2004-zaragoza-bridge.jpg",
+          "credit": "Foto: Wikimedia Commons · CC BY-SA",
+          "note": "为 2008 年萨拉戈萨世博会而建的展览桥，如一枚落在埃布罗河畔的白色晶簇。"
+        },
+        {
+          "title_cn": "维特拉消防站",
+          "title_en": "Vitra Fire Station",
+          "city": "魏尔 am 莱茵",
+          "country": "德国",
+          "completed": "1993",
+          "photo": "assets/works/2004-vitra-fire-station.jpg",
+          "credit": "Foto: Wikimedia Commons · CC BY-SA",
+          "note": "她的第一件建成作品——图纸上奔涌的流体几何第一次获得了肉身。"
+        }
+      ],
+      "trivia": "2004 年，扎哈成为普利兹克奖首位女性得主。评审辞将她的职业道路称为『英雄式的奋斗』，并将她与尼迈耶相提并论——『他们共享一种无畏』。"
+    },
+    "1988": {
+      "firm": "SOM 事务所（邦沙夫特任设计合伙人）· 尼迈耶自营事务所",
+      "portrait": null,
+      "portraitCredit": null,
+      "citation": {
+        "cn": "在普利兹克建筑奖即将迈入第十年之际，以褒奖两位现代建筑大师来纪念这个里程碑，是再合适不过的——这个行业受他们恩泽良多。奖项由两人分享在此前未有先例，但作为对本世纪具有世界性影响的南北美洲建筑师的致敬，完全当之无愧。",
+        "en": "As we approach a decade of the Pritzker Architecture Prize, it seems appropriate to celebrate that milepost by honoring two masters of modern architecture to whom the profession owes so much. The sharing of the prize is unprecedented, but entirely warranted as a tribute to architects from North and South America whose work has had worldwide influence in this century.",
+        "source": "Jury Citation, The Pritzker Architecture Prize 1988"
+      },
+      "works": [
+        {
+          "by": "戈登·邦沙夫特 Gordon Bunshaft",
+          "title_cn": "拜内克珍本及手稿图书馆",
+          "title_en": "Beinecke Rare Book & Manuscript Library",
+          "city": "纽黑文",
+          "country": "美国",
+          "completed": "1963",
+          "photo": "assets/works/1988-beinecke.jpg",
+          "credit": "Foto: Wikimedia Commons · CC BY-SA",
+          "note": "半透明大理石幕墙包裹的书籍圣殿——『他为之设立了城市与企业建筑的永恒标准』。"
+        },
+        {
+          "by": "奥斯卡·尼迈耶 Oscar Niemeyer",
+          "title_cn": "巴西利亚大教堂",
+          "title_en": "Cathedral of Brasília",
+          "city": "巴西利亚",
+          "country": "巴西",
+          "completed": "1970",
+          "photo": "assets/works/1988-brasilia-cathedral.jpg",
+          "credit": "Foto: Wikimedia Commons · CC BY-SA",
+          "note": "十六根混凝土抛物线与天光构成的「皇冠」——『他的建筑是巴西色彩、光与感官意象的提纯』。"
+        }
+      ],
+      "trivia": "1988 年是普利兹克奖首次（至今仍罕见）的双得主年份，奖金由两位建筑师均分，颁奖典礼在芝加哥艺术学院举行——那一年恰是奖项设立十周年。"
+    }
+  }
+}

@@ -1,0 +1,283 @@
+/* archive.css · 时间轴档案页（.ar-）
+   版式参照 eladiodieste.com：墨底、视口中央一条时间脊、影像与文字左右交错、随滚动推进 */
+
+#archive{
+  position:relative;z-index:30;
+  background:var(--night);
+  color:var(--night-ink);
+  min-height:100vh;
+  transition:transform .72s var(--ease),opacity .72s var(--ease);
+}
+/* 自下而上的入场（由首页底部滑入时触发） */
+#archive.is-rising{transform:translateY(26vh);opacity:0;}
+/* 档案页打开期间底色交给墨色：上升/下落露出的应是深色而非浅色纸面 */
+body.is-archive-open{background:var(--night);}
+
+/* 页脚（与首页/详情共用 .foot-* 结构）在墨底上的浅色适配 */
+#archive .foot-rule{border-top-color:var(--night-spine);}
+#archive .foot-motto{color:var(--night-g60);}
+#archive .foot-author{color:var(--night-g40);}
+#archive .foot-author b{color:var(--night-ink);}
+#archive .foot-grid a{border-bottom-color:var(--night-hair);}
+#archive .foot-grid a:hover{border-bottom-color:var(--night-ink);}
+#archive .foot-logo{filter:invert(1);}
+
+/* 首页退场：时间轴左移淡出、页脚右移淡出 */
+#home.is-exit .dash-tl{transform:translateX(-7%);opacity:0;transition:transform .68s var(--ease),opacity .68s var(--ease);}
+#home.is-exit #foot{transform:translateX(7%);opacity:0;transition:transform .68s var(--ease),opacity .68s var(--ease);}
+#home.is-exit #hero,#home.is-exit .dash-charts{opacity:0;transition:opacity .6s var(--ease);}
+#home .dash-tl,#home #foot,#home #hero,#home .dash-charts{transition:transform .55s var(--ease),opacity .55s var(--ease);}
+
+/* ---------------- 总起页 ---------------- */
+.ar-cover{
+  position:relative;z-index:2;
+  min-height:76vh;
+  max-width:var(--maxw);margin:0 auto;
+  padding:clamp(56px,14vh,160px) var(--pad) clamp(40px,10vh,110px);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.ar-cover-kicker{color:var(--night-g60);}
+.ar-cover-title{
+  margin:clamp(14px,2.4vh,26px) 0 0;
+  font-family:var(--font-cn-sans);font-weight:900;
+  font-size:clamp(46px,7.4vw,124px);line-height:1.02;letter-spacing:-.02em;
+}
+.ar-lead{
+  margin-top:clamp(20px,3.4vh,36px);
+  max-width:56ch;
+  font-family:var(--font-cn-serif);
+  font-size:clamp(14px,1.3vw,17px);line-height:1.95;color:#C9C9C9;
+}
+.ar-lead .en{
+  display:block;margin-top:12px;
+  font-family:var(--font-disp);font-size:.92em;color:var(--night-g60);letter-spacing:.01em;
+}
+.ar-cover-meta{margin-top:clamp(22px,3.6vh,40px);color:var(--night-g40);}
+.ar-scroll-hint{margin-top:clamp(26px,5vh,60px);color:var(--night-g60);}
+
+/* ---------------- 时间脊（贯穿视口的细线 + 白色进度段） ---------------- */
+.ar-spine{
+  position:fixed;top:0;bottom:0;left:50%;width:1px;
+  background:var(--night-spine);
+  z-index:1;pointer-events:none;
+  transform:translateX(-.5px);
+}
+/* 白色进度段：自屏幕顶到阅读线（视口中线）。
+   滚动时年份标记向上穿过它——相对时间轴而言，就是白线向下穿过一个个年份；
+   标记越过中线的瞬间转白并在 JS 里弹跳一下，线沿与变白时刻完全对齐 */
+.ar-spine-fill{
+  position:absolute;left:0;top:0;width:100%;height:50vh;
+  background:var(--night-ink);
+}
+#archive.is-falling{transform:translateY(26vh);opacity:0;}
+
+/* ---------------- 工具条（半透明材质，内容从下方穿过） ---------------- */
+.ar-bar{
+  position:sticky;top:0;z-index:6;
+  display:flex;align-items:center;gap:clamp(12px,2vw,26px);
+  padding:12px var(--pad);
+  background:rgba(10,10,10,.68);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  backdrop-filter:blur(16px) saturate(140%);
+  border-bottom:1px solid var(--night-hair);
+}
+.ar-bar .ar-logo{display:block;width:26px;height:26px;flex:0 0 auto;cursor:pointer;opacity:.86;transition:opacity .2s var(--ease);}
+.ar-bar .ar-logo img{width:100%;height:100%;display:block;object-fit:contain;}
+.ar-bar .ar-logo:hover{opacity:1;}
+.ar-bar-title{color:var(--night-g60);}
+.ar-bar-right{margin-left:auto;display:flex;align-items:center;gap:14px;}
+.ar-count{color:var(--night-g40);}
+.ar-close{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--night-g60);padding:6px 12px;border:1px solid var(--night-hair);border-radius:2px;
+  transition:color var(--dur-mic) var(--ease),border-color var(--dur-mic) var(--ease);
+}
+.ar-close:hover{color:var(--night-ink);border-color:var(--night-spine);}
+.ar-close:active{transform:scale(.985);}
+.ar-close:focus-visible{outline:2px solid var(--night-ink);outline-offset:2px;}
+
+/* ---------------- 主体 ---------------- */
+.ar-body{
+  position:relative;z-index:2;
+  max-width:var(--maxw);margin:0 auto;
+  padding:clamp(40px,10vh,120px) var(--pad) clamp(80px,16vh,200px);
+}
+.ar-list{display:flex;flex-direction:column;}
+
+/* 每届一段：左影像 / 右文字，交替镜像 */
+.ar-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  column-gap:clamp(40px,7vw,120px);
+  align-items:center;
+  padding-bottom:clamp(90px,18vh,220px);
+  scroll-margin-top:clamp(80px,12vh,120px);
+}
+.ar-item:last-child{padding-bottom:0;}
+
+/* 时间脊上的标记：年份 + 菱形 */
+.ar-mark{
+  position:absolute;left:50%;top:0;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  z-index:3;
+}
+.ar-mark b{
+  display:inline-block;                          /* 年份需可 transform（到达时弹跳） */
+  transform-origin:50% 50%;
+  font-family:var(--font-disp);font-weight:500;
+  font-size:clamp(20px,2.2vw,34px);letter-spacing:.02em;line-height:1;
+  color:var(--night-g40);                       /* 未抵达：灰 */
+  transition:color .5s var(--ease),opacity .5s var(--ease);
+}
+.ar-mark i{
+  width:7px;height:7px;background:var(--night-g40);
+  transform:rotate(45deg);
+  transition:background .5s var(--ease),transform .5s var(--ease);
+}
+/* 已抵达：白 */
+.ar-item.is-passed .ar-mark b,
+.ar-item.is-current .ar-mark b{color:var(--night-ink);}
+.ar-item.is-current .ar-mark i{background:var(--night-ink);transform:rotate(45deg) scale(1.5);}
+
+/* 影像列 */
+.ar-media{display:flex;flex-direction:column;gap:clamp(16px,2.4vh,30px);min-width:0;}
+.ar-item:nth-child(odd) .ar-media{grid-column:2;}
+.ar-item:nth-child(even) .ar-media{grid-column:1;}
+.ar-item:nth-child(odd) .ar-text{grid-column:1;grid-row:1;}
+.ar-item:nth-child(even) .ar-text{grid-column:2;grid-row:1;}
+
+.ar-fig{position:relative;overflow:hidden;background:#141414;cursor:pointer;}
+.ar-fig img{
+  width:100%;display:block;
+  opacity:0;transform:scale(1.03);
+  filter:grayscale(1) contrast(1.04);
+  transition:opacity .8s var(--ease),transform 1.4s var(--ease);
+}
+.ar-fig img.is-loaded{opacity:1;transform:none;}
+/* 悬停：轻微放大聚焦 + 呼吸 */
+.ar-fig:hover img,.ar-fig:focus-within img{transform:scale(1.05);}
+.ar-fig:hover{animation:arBreath 4.5s ease-in-out infinite;}
+@keyframes arBreath{
+  0%,100%{filter:brightness(1);}
+  50%{filter:brightness(1.07);}
+}
+.ar-fig--portrait{aspect-ratio:4/5;}
+.ar-fig--work{aspect-ratio:16/10;}
+.ar-fig--portrait img,.ar-fig--work img{height:100%;object-fit:cover;}
+.ar-fig--none{
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--night-hair);background:none;
+}
+.ar-fig--none span{
+  font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--night-g40);text-align:center;line-height:1.9;
+}
+.ar-cap{margin-top:8px;font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;color:var(--night-g40);}
+
+/* 文字列 */
+.ar-text{min-width:0;max-width:52ch;}
+.ar-item:nth-child(even) .ar-text{margin-left:auto;}
+.ar-kicker{color:var(--night-g40);}
+.ar-names{
+  font-family:var(--font-cn-sans);font-weight:900;
+  font-size:clamp(26px,3.2vw,46px);line-height:1.12;letter-spacing:-.015em;
+  margin:12px 0 0;
+}
+.ar-names .en{
+  display:block;margin-top:10px;
+  font-family:var(--font-disp);font-weight:400;
+  font-size:clamp(12px,1.15vw,17px);color:var(--night-g60);letter-spacing:.02em;
+}
+.ar-meta{margin-top:14px;color:var(--night-g60);}
+
+.ar-quote{
+  margin-top:clamp(16px,2.6vh,28px);
+  font-family:var(--font-cn-serif);
+  font-size:clamp(14px,1.3vw,17px);line-height:1.9;
+  color:var(--night-ink);
+  border-left:1px solid var(--night-spine);padding-left:clamp(12px,1.6vw,20px);
+}
+.ar-quote .en{
+  display:block;margin-top:10px;
+  font-family:var(--font-display);font-style:italic;font-size:.78em;color:var(--night-g60);
+}
+.ar-quote-src{display:block;margin-top:8px;font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--night-g40);text-transform:uppercase;}
+.ar-quote--none{margin-top:clamp(16px,2.6vh,28px);color:var(--night-g40);border-left-color:var(--night-hair);font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;}
+
+/* 生平（官网文本） */
+.ar-bio{margin-top:clamp(16px,2.6vh,28px);}
+.ar-bio p{
+  font-family:var(--font-cn-serif);
+  font-size:clamp(13.5px,1.24vw,16px);line-height:1.95;
+  color:#C9C9C9;
+}
+/* 中英逐段交替：同段内英文在上、中文紧随（正文中文统一思源黑体 Light）；
+   段与段之间拉开，读起来才分得清是一组 */
+.ar-bio p.p-en{margin-top:18px;}
+.ar-bio p.p-cn{margin-top:6px;font-family:var(--font-cn-sans);font-weight:300;color:#AFAFAF;}
+.ar-bio p:first-child{margin-top:0;}
+.ar-bio-more{display:none;margin-top:12px;}
+.ar-bio.is-open .ar-bio-more{display:block;}
+.ar-bio.is-open .ar-bio-more-btn{display:none;}   /* 展开后「展开」按钮隐去，只留结尾的「收起」 */
+.ar-bio-toggle{
+  cursor:pointer;list-style:none;background:none;border:none;padding:0;
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--night-g60);
+  border-bottom:1px solid var(--night-hair);padding-bottom:3px;display:inline-block;margin-top:12px;
+  transition:color var(--dur-mic) var(--ease),border-color var(--dur-mic) var(--ease);
+}
+.ar-bio-toggle:hover{color:var(--night-ink);border-bottom-color:var(--night-ink);}
+.ar-bio-less-btn{display:none;}
+.ar-bio.is-open .ar-bio-less-btn{display:inline-block;margin-top:14px;}
+.ar-bio-src{
+  margin-top:14px;font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;color:var(--night-g40);
+}
+.ar-bio-src a{color:var(--night-g60);text-decoration:none;border-bottom:1px solid var(--night-hair);}
+.ar-bio-src a:hover{color:var(--night-ink);border-bottom-color:var(--night-ink);}
+
+.ar-works{margin-top:clamp(18px,2.6vh,30px);}
+.ar-work{
+  display:grid;grid-template-columns:34px minmax(0,1fr);
+  gap:10px;align-items:baseline;
+  padding:9px 0;border-top:1px solid var(--night-hair);
+}
+.ar-work:last-child{border-bottom:1px solid var(--night-hair);}
+.ar-work .no{font-family:var(--font-mono);font-size:9.5px;color:var(--night-g40);}
+.ar-work .t{font-family:var(--font-cn-serif);font-size:14px;font-weight:700;}
+.ar-work .t .en{display:block;font-family:var(--font-mono);font-size:9.5px;font-weight:400;color:var(--night-g60);letter-spacing:.04em;margin-top:3px;}
+.ar-work .loc{
+  grid-column:2;font-family:var(--font-mono);font-size:9.5px;
+  color:var(--night-g60);letter-spacing:.06em;
+}
+.ar-work .desc{grid-column:2;margin-top:9px;font-family:var(--font-cn-serif);font-size:12.5px;line-height:1.78;color:var(--night-g70);max-width:66ch;}
+.ar-work .desc p{margin:0 0 .55em;}
+.ar-work .desc p:last-child{margin-bottom:0;}
+
+.ar-more{
+  display:inline-block;margin-top:22px;
+  color:var(--night-g60);
+  border-bottom:1px solid var(--night-hair);
+  padding-bottom:3px;
+  transition:color var(--dur-mic) var(--ease),border-color var(--dur-mic) var(--ease);
+}
+.ar-more:hover{color:var(--night-ink);border-bottom-color:var(--night-ink);}
+
+/* 滚动揭示（影像与文字分向浮入，呼应时间脊） */
+.ar-item .ar-media{opacity:0;transform:translateY(26px);transition:opacity var(--dur-pg) var(--ease),transform var(--dur-pg) var(--ease);}
+.ar-item .ar-text{opacity:0;transform:translateY(20px);transition:opacity var(--dur-pg) var(--ease) 90ms,transform var(--dur-pg) var(--ease) 90ms;}
+.ar-item.is-in .ar-media,.ar-item.is-in .ar-text{opacity:1;transform:none;}
+
+/* ---------------- 响应式 ---------------- */
+@media (max-width:900px){
+  .ar-spine{display:none;}
+  .ar-item{grid-template-columns:minmax(0,1fr);row-gap:22px;}
+  .ar-item:nth-child(odd) .ar-media,.ar-item:nth-child(even) .ar-media{grid-column:1;grid-row:1;}
+  .ar-item:nth-child(odd) .ar-text,.ar-item:nth-child(even) .ar-text{grid-column:1;grid-row:2;margin-left:0;}
+  .ar-mark{position:static;transform:none;flex-direction:row;align-items:baseline;gap:12px;}
+  .ar-text{max-width:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  .ar-item .ar-media,.ar-item .ar-text{opacity:1;transform:none;transition:none;}
+  .ar-fig img{opacity:1;transform:none;transition:none;}
+}

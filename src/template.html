@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>普利兹克建筑奖 · 历届得主档案 1979—2026</title>
+<style>/*__FONTS__*/</style>
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<div id="app">
+
+  <section id="home">
+
+    <header id="hero">
+      <div class="hero-bg ui-img" id="hero-bg"></div>
+      <div class="hero-veil"></div>
+      <div class="hero-inner">
+        <p class="hero-eyebrow ui-cap">The Pritzker Architecture Prize · 1979—2026</p>
+        <h1 class="hero-title">
+          <span class="hero-line">普利兹克</span>
+          <span class="hero-line">建筑奖<em class="hero-latin ui-cap">Pritzker</em></span>
+        </h1>
+        <div class="hero-foot">
+          <dl class="hero-stats" id="hero-stats"></dl>
+          <p class="hero-quote" id="hero-quote"></p>
+        </div>
+      </div>
+      <figure class="hero-medal" id="hero-medal" tabindex="0" role="button" aria-label="普利兹克奖章：拖拽旋转、点击翻转，查看正面与背面">
+        <div class="medal-stage">
+          <div class="medal-coin" id="medal-coin">
+            <span class="medal-face medal-front"></span>
+            <span class="medal-face medal-back"></span>
+          </div>
+          <span class="medal-shadow" aria-hidden="true"></span>
+        </div>
+        <figcaption class="ui-cap">
+          <span id="medal-side">Front · 正面</span>
+          <span class="medal-hint">拖拽旋转 · 点击翻转</span>
+        </figcaption>
+      </figure>
+      <div class="hero-tail">
+        <div class="hero-scroll ui-cap">Scroll ↓</div>
+        <a id="brand" href="#home" aria-label="AI DESIFE · 返回首页">
+          <img src="../assets/brand/logo-paper.png" alt="AI DESIFE">
+        </a>
+      </div>
+    </header>
+
+    <!-- 数据总览：国籍分布 × 地理分布 × 时间轴，同屏联动 -->
+    <section class="sec sec-dash" id="dash-sec" aria-label="数据总览 · 时间轴">
+      <div class="sec-head ui-hair">
+        <h2 class="sec-title"><span class="idx ui-cap">01</span>数据总览<span class="en ui-cap">Atlas at a Glance</span></h2>
+      </div>
+
+      <div class="dash-charts">
+        <div class="chart-card">
+          <h3 class="chart-title"><span class="idx ui-cap">A</span>获奖得主国籍分布<span class="en ui-cap">By Nationality</span></h3>
+          <div class="chart-body" id="chart-nations"></div>
+        </div>
+        <div class="chart-card">
+          <h3 class="chart-title"><span class="idx ui-cap">B</span>代表作地理分布<span class="en ui-cap">Around the World</span></h3>
+          <div class="chart-body" id="chart-geo"></div>
+        </div>
+      </div>
+
+      <!-- 图例与选中状态同一行：大洲图例由脚本插到最前，状态靠右 -->
+      <div class="dash-legend-row">
+        <p class="ui-cap chart-status" id="cna-status"></p>
+        <p class="ui-cap chart-status" id="cge-status"></p>
+      </div>
+
+      <div class="dash-tl" id="timeline-sec">
+        <div class="dash-tl-head">
+          <h3 class="chart-title"><span class="idx ui-cap">C</span>时间轴总览<span class="en ui-cap">Overview Timeline</span></h3>
+          <p class="sec-note ui-cap" id="tl-note">1979—2026 · 悬停十年段展开 · 点击节点进入时间轴档案</p>
+          <div class="sec-tools">
+            <button type="button" class="ui-chip" id="btn-lineage" aria-pressed="false">师承 Lineage</button>
+            <button type="button" class="ui-chip" id="btn-age" aria-pressed="false">年龄 Age</button>
+            <a class="ui-chip" href="#/timeline/1979">时间轴档案 Archive</a>
+          </div>
+        </div>
+        <div class="tl-wrap" id="tl-wrap">
+          <svg class="tl-arcs" id="tl-arcs" aria-hidden="true"></svg>
+          <div class="tl-agegrid" id="tl-agegrid" aria-hidden="true"></div>
+          <ol class="tl" id="tl"></ol>
+        </div>
+      </div>
+    </section>
+
+    <footer class="sec" id="foot"></footer>
+
+  </section>
+
+  <section id="archive" hidden aria-label="时间轴档案"></section>
+  <section id="detail" hidden aria-live="polite"></section>
+
+</div>
+
+<!--__VENDOR__-->
+<script>
+window.__DATA__ = /*__DATA__*/ null;
+</script>
+<script>/*__JS__*/</script>
+</body>
+</html>

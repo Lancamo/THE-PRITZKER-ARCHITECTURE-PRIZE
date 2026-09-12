@@ -1,0 +1,32 @@
+[
+  {
+    "file": "assets/fonts/outfit-var.woff2",
+    "family": "Outfit",
+    "weights": "100..900",
+    "source": "Google Fonts / Outfit (OFL)",
+    "url": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2"
+  },
+  {
+    "file": "assets/fonts/noto-sans-sc-700.woff2",
+    "family": "Noto Sans SC (subset)",
+    "weights": "700",
+    "subset_chars": 309,
+    "source": "Google Fonts / Noto Sans SC (OFL)",
+    "url": "https://fonts.gstatic.com/l/font?kit=k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaGzjCnYlNbPzT7HF7YjBBbgmkBpeTl4utOriIVIuqhkMx0nz4SJDpFPanQnmRLbhkcsE-hMq6VxLHJBIhZVGv1jX46Ph8IW73sO4-aTThrrt3nu5Nbr2CoxHLmUg-v_k2RbN3U1b8QhiN8EcjNPSEmk1epkeHE3skp3OqewGsAKiM4UnBLlDylJkz38BKgvhtwRvvr6CLvNxLJjHyX1sy2dVCirLDRPuEjgMJROHYTqvw8GCd2zaDiVfqnv6-5NtkM67AzEAwt-XAFOq3ihpuMUW5fnEvUJU_mdHTUEt2l8sM2-Jx4jm21Bn3WM8L3Qso1VWgHpuy1koAB9_P5ZpWc7XowK-9UBn0rFPfKmTaYUIJ6iFcMNI53rXKeFr1oVykRj0u6nXbJosA2DrsNZPAXrypvVYSBFbD65NcX0BqQwyjy-thHvLwoJrGJ8mHuv-RropC4ayJdq5gY3i6Qj0KDS5Tm7N-dxxrguhr_TP-_tZ3_enmMLHsn8YKwCWYcPU3AjSZDygoueBVDA_KOX2kr35QqDxFidzh7l2GS9WTwXcwwnRg9dmWvbQLECJ6VqRoyCV6pYEUmcSEusPvKGk6GvDvV-yxi0omLY_CLSmR7oj8Nop3pZv6ojv8xSwPCMPw0Jc0C93j24YQY14mJvrK-lWCf184aUC65Yb_dIjtw-5WG68VbZYUwdjfi80Ev9Y__pLNMkciYdaym94X7VheWOAByBdh-1cOBP5sjWKC4JtgSNx2yhlShwC_gWjYRBQxJTez9EDM7JHbj7M7U0c1kty-CODEdOouPYuXozRA3_WpI3HcEUpF2IS2-oy8iesggInxuMzYP1TNuhUnNOxrOjpCI94sKvIPjYQ5dcB6XE-psqDeGAWLQlDYkwUB3A3sACSU_RxGGY71JkJWwPdlV8Y5uzq6ObHywbbqk65E28DdcMaYzhXXPRFJE3WiS3OdUZa-MSifUiHBn3-l-rGbdJ1cfUOB1NF5O83dNW2keCM6viRar5J-G7_TVjEge5zIMEhIJhZiZS83i0gnF0rv8Igkf9j5BjFDSHnnRMyuzr44fvmLUVBoaLqNGCGPm4Vd813bA8DyptkuuwlJnlV2fGSZJNPsjMlT0swLhOjFnpu6UfWsaPhwLMWfE-xxsBQbC_dLUjs1CBofPJNRARM1MePCioeNYtowrmpNPdTb8EG-tCrddYnQlY27ntTxQMV4icww8fWtuS-s8bYJCQ2X_A&skey=cf0bb10b5602fdc3&v=v40"
+  },
+  {
+    "file": "assets/fonts/noto-sans-sc-900.woff2",
+    "family": "Noto Sans SC (subset)",
+    "weights": "900",
+    "subset_chars": 309,
+    "source": "Google Fonts / Noto Sans SC (OFL)",
+    "url": "https://fonts.gstatic.com/l/font?kit=k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG3bCnYlNbPzT7HF7YjBBbgmkBpeTl4utOriIVIuqhkMx0nz4SJDpFPanQnmRLbhkcsE-hMq6VxLHJBIhZVGv1jX46Ph8IW73sO4-aTThrrt3nu5Nbr2CoxHLmUg-v_k2RbN3U1b8QhiN8EcjNPSEmk1epkeHE3skp3OqewGsAKiM4UnBLlDylJkz38BKgvhtwRvvr6CLvNxLJjHyX1sy2dVCirLDRPuEjgMJROHYTqvw8GCd2zaDiVfqnv6-5NtkM67AzEAwt-XAFOq3ihpuMUW5fnEvUJU_mdHTUEt2l8sM2-Jx4jm21Bn3WM8L3Qso1VWgHpuy1koAB9_P5ZpWc7XowK-9UBn0rFPfKmTaYUIJ6iFcMNI53rXKeFr1oVykRj0u6nXbJosA2DrsNZPAXrypvVYSBFbD65NcX0BqQwyjy-thHvLwoJrGJ8mHuv-RropC4ayJdq5gY3i6Qj0KDS5Tm7N-dxxrguhr_TP-_tZ3_enmMLHsn8YKwCWYcPU3AjSZDygoueBVDA_KOX2kr35QqDxFidzh7l2GS9WTwXcwwnRg9dmWvbQLECJ6VqRoyCV6pYEUmcSEusPvKGk6GvDvV-yxi0omLY_CLSmR7oj8Nop3pZv6ojv8xSwPCMPw0Jc0C93j24YQY14mJvrK-lWCf184aUC65Yb_dIjtw-5WG68VbZYUwdjfi80Ev9Y__pLNMkciYdaym94X7VheWOAByBdh-1cOBP5sjWKC4JtgSNx2yhlShwC_gWjYRBQxJTez9EDM7JHbj7M7U0c1kty-CODEdOouPYuXozRA3_WpI3HcEUpF2IS2-oy8iesggInxuMzYP1TNuhUnNOxrOjpCI94sKvIPjYQ5dcB6XE-psqDeGAWLQlDYkwUB3A3sACSU_RxGGY71JkJWwPdlV8Y5uzq6ObHywbbqk65E28DdcMaYzhXXPRFJE3WiS3OdUZa-MSifUiHBn3-l-rGbdJ1cfUOB1NF5O83dNW2keCM6viRar5J-G7_TVjEge5zIMEhIJhZiZS83i0gnF0rv8Igkf9j5BjFDSHnnRMyuzr44fvmLUVBoaLqNGCGPm4Vd813bA8DyptkuuwlJnlV2fGSZJNPsjMlT0swLhOjFnpu6UfWsaPhwLMWfE-xxsBQbC_dLUjs1CBofPJNRARM1MePCioeNYtowrmpNPdTb8EG-tCrddYnQlY27ntTxQMV4icww8fWtuS-s8bYJCQ2X_A&skey=cf0bb10b5602fdc3&v=v40"
+  },
+  {
+    "file": "assets/fonts/noto-sans-sc-300.woff2",
+    "family": "Noto Sans SC (Light subset, local)",
+    "weights": "300",
+    "subset_chars": 2101,
+    "source": "Google Fonts / Noto Sans SC (OFL)，本地实例化 + fontTools 子集"
+  }
+]

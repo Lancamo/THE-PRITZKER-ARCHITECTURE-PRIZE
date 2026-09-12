@@ -1,0 +1,53 @@
+/* tokens.css · B 视觉官 · 全站唯一变量来源（禁在模块样式硬编码色值/时长） */
+:root{
+  /* 黑白基准（参照 kim-seunghyuk）：#0A0A0A 墨 × #E8E8E8 灰白，中性无极偏色 */
+  --ink:#0A0A0A;
+  --paper:#E8E8E8;
+  --paper-2:#DCDCDC;
+  --g60:#6E6E6E;
+  --g40:#9B9B9B;
+  --g25:#C3C3C3;
+  --hair:#D6D6D6;
+  --band:#E0E0E0;
+
+  /* 暗色页（时间轴档案）：底色即墨，文字即灰白 */
+  --night:#0A0A0A;
+  --night-ink:#E8E8E8;
+  --night-g60:#8F8F8F;
+  --night-g40:#6A6A6A;
+  --night-hair:rgba(232,232,232,.20);
+  --night-spine:rgba(232,232,232,.32);
+
+  /* 透明度阶梯（选中/预览/常规/弱化） */
+  --op-100:1;
+  --op-70:.7;
+  --op-45:.45;
+  --op-25:.25;
+  --op-12:.12;
+  --op-dim:var(--op-12);
+  --op-preview:var(--op-45);
+  --op-muted:var(--op-25);
+
+  /* 动效 */
+  --ease:cubic-bezier(.32,.72,0,1);
+  --dur-mic:220ms;
+  --dur-blk:520ms;
+  --dur-pg:720ms;
+
+  /* 字体：三层系统 + 中文系统栈（中文字体不内嵌，走系统回退）
+     中文编辑排版参照 nabil-issa-architect：高对比衬线标题 × 无衬线正文 × 大写加距标签 */
+  --font-display:"Fraunces","Songti SC","STSong","Noto Serif SC",Georgia,serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,"Courier New",monospace;
+  --font-ui:"Inter",-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --font-cn-serif:"Songti SC","STSong","Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC",serif;
+
+  /* 大标题与强调专用：Outfit（西文/数字，可变字重）+ 思源黑体（中文，子集内嵌，缺字回落系统） */
+  --font-disp:"Outfit","Inter",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  --font-cn-sans:"Noto Sans SC","Source Han Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --font-head:var(--font-disp);
+
+  /* 网格 */
+  --pad:clamp(20px,4vw,64px);
+  --maxw:1440px;
+  --gap:clamp(16px,2.4vw,40px);
+}

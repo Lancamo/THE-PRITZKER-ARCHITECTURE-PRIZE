@@ -1,0 +1,992 @@
+[
+  {
+    "status": "ok",
+    "year": 1979,
+    "slug": "philip-johnson",
+    "kind": "portrait",
+    "file": "assets/portraits/1979-philip-johnson.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1979,
+    "slug": "glass-house",
+    "kind": "work",
+    "file": "assets/works/1979-glass-house.jpg",
+    "license": "Getty Images",
+    "artist": "Vogue Global, 12 May 2020"
+  },
+  {
+    "status": "ok",
+    "year": 1980,
+    "slug": "luis-barrag-n",
+    "kind": "portrait",
+    "file": "assets/portraits/1980-luis-barrag-n.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1980,
+    "slug": "torres-de-sat-lite",
+    "kind": "work",
+    "file": "assets/works/1980-torres-de-sat-lite.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1981,
+    "slug": "james-stirling",
+    "kind": "portrait",
+    "file": "assets/portraits/1981-james-stirling.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1981,
+    "slug": "seeley-historical-library",
+    "kind": "work",
+    "file": "assets/works/1981-seeley-historical-library.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1982,
+    "slug": "kevin-roche",
+    "kind": "portrait",
+    "file": "assets/portraits/1982-kevin-roche.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1982,
+    "slug": "knights-of-columbus-building",
+    "kind": "work",
+    "file": "assets/works/1982-knights-of-columbus-building.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1983,
+    "slug": "i-m-pei",
+    "kind": "portrait",
+    "file": "assets/portraits/1983-i-m-pei.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1983,
+    "slug": "east-building-national-gallery-of-art",
+    "kind": "work",
+    "file": "assets/works/1983-east-building-national-gallery-of-art.jpg",
+    "license": "archiposition.com",
+    "artist": "有方 / 用户提供"
+  },
+  {
+    "status": "ok",
+    "year": 1984,
+    "slug": "richard-meier",
+    "kind": "portrait",
+    "file": "assets/portraits/1984-richard-meier.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1984,
+    "slug": "high-museum-of-art",
+    "kind": "work",
+    "file": "assets/works/1984-high-museum-of-art.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1985,
+    "slug": "hans-hollein",
+    "kind": "portrait",
+    "file": "assets/portraits/1985-hans-hollein.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1985,
+    "slug": "museum-abteiberg",
+    "kind": "work",
+    "file": "assets/works/1985-museum-abteiberg.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1986,
+    "slug": "gottfried-b-hm",
+    "kind": "portrait",
+    "file": "assets/portraits/1986-gottfried-b-hm.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1986,
+    "slug": "bensberg-civic-centre",
+    "kind": "work",
+    "file": "assets/works/1986-bensberg-civic-centre.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1987,
+    "slug": "kenzo-tange",
+    "kind": "portrait",
+    "file": "assets/portraits/1987-kenzo-tange.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1987,
+    "slug": "st-mary-s-cathedral",
+    "kind": "work",
+    "file": "assets/works/1987-st-mary-s-cathedral.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1988,
+    "slug": "gordon-bunshaft",
+    "kind": "portrait",
+    "file": "assets/portraits/1988-gordon-bunshaft.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1988,
+    "slug": "oscar-niemeyer",
+    "kind": "portrait",
+    "file": "assets/portraits/1988-oscar-niemeyer.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1988,
+    "slug": "beinecke",
+    "kind": "work",
+    "file": "assets/works/1988-beinecke.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1988,
+    "slug": "beinecke-rare-book-manuscript-library",
+    "kind": "work",
+    "file": "assets/works/1988-beinecke-rare-book-manuscript-library.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1988,
+    "slug": "brasilia-cathedral",
+    "kind": "work",
+    "file": "assets/works/1988-brasilia-cathedral.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1988,
+    "slug": "brasilia-congress",
+    "kind": "work",
+    "file": "assets/works/1988-brasilia-congress.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1988,
+    "slug": "cathedral-of-bras-lia",
+    "kind": "work",
+    "file": "assets/works/1988-cathedral-of-bras-lia.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1988,
+    "slug": "lever-house",
+    "kind": "work",
+    "file": "assets/works/1988-lever-house.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1989,
+    "slug": "frank-gehry",
+    "kind": "portrait",
+    "file": "assets/portraits/1989-frank-gehry.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1989,
+    "slug": "walt-disney-concert-hall",
+    "kind": "work",
+    "file": "assets/works/1989-walt-disney-concert-hall.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1990,
+    "slug": "aldo-rossi",
+    "kind": "portrait",
+    "file": "assets/portraits/1990-aldo-rossi.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1990,
+    "slug": "bundeskunsthalle",
+    "kind": "work",
+    "file": "assets/works/1990-bundeskunsthalle.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1991,
+    "slug": "robert-venturi",
+    "kind": "portrait",
+    "file": "assets/portraits/1991-robert-venturi.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1991,
+    "slug": "sainsbury-wing-national-gallery",
+    "kind": "work",
+    "file": "assets/works/1991-sainsbury-wing-national-gallery.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1992,
+    "slug": "lvaro-siza",
+    "kind": "portrait",
+    "file": "assets/portraits/1992-lvaro-siza.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1992,
+    "slug": "portugal-pavilion-expo-98",
+    "kind": "work",
+    "file": "assets/works/1992-portugal-pavilion-expo-98.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1993,
+    "slug": "fumihiko-maki",
+    "kind": "portrait",
+    "file": "assets/portraits/1993-fumihiko-maki.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1993,
+    "slug": "tokyo-metropolitan-gymnasium",
+    "kind": "work",
+    "file": "assets/works/1993-tokyo-metropolitan-gymnasium.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1994,
+    "slug": "christian-de-portzamparc",
+    "kind": "portrait",
+    "file": "assets/portraits/1994-christian-de-portzamparc.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1994,
+    "slug": "french-embassy-in-germany",
+    "kind": "work",
+    "file": "assets/works/1994-french-embassy-in-germany.jpg",
+    "license": "",
+    "artist": "用户提供"
+  },
+  {
+    "status": "ok",
+    "year": 1995,
+    "slug": "tadao-ando",
+    "kind": "portrait",
+    "file": "assets/portraits/1995-tadao-ando.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1995,
+    "slug": "church-of-the-light",
+    "kind": "work",
+    "file": "assets/works/1995-church-of-the-light.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1996,
+    "slug": "rafael-moneo",
+    "kind": "portrait",
+    "file": "assets/portraits/1996-rafael-moneo.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1996,
+    "slug": "kursaal-palace",
+    "kind": "work",
+    "file": "assets/works/1996-kursaal-palace.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1997,
+    "slug": "sverre-fehn",
+    "kind": "portrait",
+    "file": "assets/portraits/1997-sverre-fehn.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1997,
+    "slug": "norwegian-glacier-museum",
+    "kind": "work",
+    "file": "assets/works/1997-norwegian-glacier-museum.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1998,
+    "slug": "renzo-piano",
+    "kind": "portrait",
+    "file": "assets/portraits/1998-renzo-piano.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1998,
+    "slug": "kansai-international-airport",
+    "kind": "work",
+    "file": "assets/works/1998-kansai-international-airport.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 1999,
+    "slug": "norman-foster",
+    "kind": "portrait",
+    "file": "assets/portraits/1999-norman-foster.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 1999,
+    "slug": "millennium-bridge",
+    "kind": "work",
+    "file": "assets/works/1999-millennium-bridge.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2000,
+    "slug": "rem-koolhaas",
+    "kind": "portrait",
+    "file": "assets/portraits/2000-rem-koolhaas.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2000,
+    "slug": "casa-da-m-sica",
+    "kind": "work",
+    "file": "assets/works/2000-casa-da-m-sica.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2001,
+    "slug": "herzog-de-meuron",
+    "kind": "portrait",
+    "file": "assets/portraits/2001-herzog-de-meuron.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2001,
+    "slug": "tate-modern",
+    "kind": "work",
+    "file": "assets/works/2001-tate-modern.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2002,
+    "slug": "glenn-murcutt",
+    "kind": "portrait",
+    "file": "assets/portraits/2002-glenn-murcutt.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2002,
+    "slug": "berowra-waters-inn",
+    "kind": "work",
+    "file": "assets/works/2002-berowra-waters-inn.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2003,
+    "slug": "j-rn-utzon",
+    "kind": "portrait",
+    "file": "assets/portraits/2003-j-rn-utzon.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2003,
+    "slug": "sydney-opera-house",
+    "kind": "work",
+    "file": "assets/works/2003-sydney-opera-house.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2004,
+    "slug": "zaha-hadid",
+    "kind": "portrait",
+    "file": "assets/portraits/2004-zaha-hadid.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2004,
+    "slug": "bridge-pavilion",
+    "kind": "work",
+    "file": "assets/works/2004-bridge-pavilion.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2004,
+    "slug": "vitra-fire-station",
+    "kind": "work",
+    "file": "assets/works/2004-vitra-fire-station.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2004,
+    "slug": "zaragoza-bridge",
+    "kind": "work",
+    "file": "assets/works/2004-zaragoza-bridge.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2005,
+    "slug": "thom-mayne",
+    "kind": "portrait",
+    "file": "assets/portraits/2005-thom-mayne.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2005,
+    "slug": "san-francisco-federal-building",
+    "kind": "work",
+    "file": "assets/works/2005-san-francisco-federal-building.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2006,
+    "slug": "paulo-mendes-da-rocha",
+    "kind": "portrait",
+    "file": "assets/portraits/2006-paulo-mendes-da-rocha.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2006,
+    "slug": "serra-dourada-stadium",
+    "kind": "work",
+    "file": "assets/works/2006-serra-dourada-stadium.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2007,
+    "slug": "richard-rogers",
+    "kind": "portrait",
+    "file": "assets/portraits/2007-richard-rogers.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2007,
+    "slug": "lloyd-s-building",
+    "kind": "work",
+    "file": "assets/works/2007-lloyd-s-building.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2008,
+    "slug": "jean-nouvel",
+    "kind": "portrait",
+    "file": "assets/portraits/2008-jean-nouvel.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2008,
+    "slug": "torre-agbar",
+    "kind": "work",
+    "file": "assets/works/2008-torre-agbar.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2009,
+    "slug": "peter-zumthor",
+    "kind": "portrait",
+    "file": "assets/portraits/2009-peter-zumthor.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2009,
+    "slug": "therme-vals",
+    "kind": "work",
+    "file": "assets/works/2009-therme-vals.jpg",
+    "license": "archiposition.com",
+    "artist": "有方 / 用户提供"
+  },
+  {
+    "status": "ok",
+    "year": 2010,
+    "slug": "kazuyo-sejima",
+    "kind": "portrait",
+    "file": "assets/portraits/2010-kazuyo-sejima.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2010,
+    "slug": "ryue-nishizawa",
+    "kind": "portrait",
+    "file": "assets/portraits/2010-ryue-nishizawa.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2010,
+    "slug": "21st-century-museum-of-contemporary-art",
+    "kind": "work",
+    "file": "assets/works/2010-21st-century-museum-of-contemporary-art.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2011,
+    "slug": "eduardo-souto-de-moura",
+    "kind": "portrait",
+    "file": "assets/portraits/2011-eduardo-souto-de-moura.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2011,
+    "slug": "est-dio-municipal-de-braga",
+    "kind": "work",
+    "file": "assets/works/2011-est-dio-municipal-de-braga.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2012,
+    "slug": "wang-shu",
+    "kind": "portrait",
+    "file": "assets/portraits/2012-wang-shu.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2012,
+    "slug": "ningbo-museum",
+    "kind": "work",
+    "file": "assets/works/2012-ningbo-museum.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2012,
+    "slug": "xiangshan",
+    "kind": "work",
+    "file": "assets/works/2012-xiangshan.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2013,
+    "slug": "toyo-ito",
+    "kind": "portrait",
+    "file": "assets/portraits/2013-toyo-ito.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2013,
+    "slug": "sendai-mediatheque",
+    "kind": "work",
+    "file": "assets/works/2013-sendai-mediatheque.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2014,
+    "slug": "shigeru-ban",
+    "kind": "portrait",
+    "file": "assets/portraits/2014-shigeru-ban.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2014,
+    "slug": "paper-dome",
+    "kind": "work",
+    "file": "assets/works/2014-paper-dome.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2015,
+    "slug": "frei-otto",
+    "kind": "portrait",
+    "file": "assets/portraits/2015-frei-otto.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2015,
+    "slug": "olympiastadion",
+    "kind": "work",
+    "file": "assets/works/2015-olympiastadion.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2016,
+    "slug": "alejandro-aravena",
+    "kind": "portrait",
+    "file": "assets/portraits/2016-alejandro-aravena.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2016,
+    "slug": "uc-innovation-center",
+    "kind": "work",
+    "file": "assets/works/2016-uc-innovation-center.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2017,
+    "slug": "carme-pigem",
+    "kind": "portrait",
+    "file": "assets/portraits/2017-carme-pigem.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2017,
+    "slug": "rafael-aranda",
+    "kind": "portrait",
+    "file": "assets/portraits/2017-rafael-aranda.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2017,
+    "slug": "ramon-vilalta",
+    "kind": "portrait",
+    "file": "assets/portraits/2017-ramon-vilalta.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2017,
+    "slug": "sant-antoni-library",
+    "kind": "work",
+    "file": "assets/works/2017-sant-antoni-library.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2018,
+    "slug": "b-v-doshi",
+    "kind": "portrait",
+    "file": "assets/portraits/2018-b-v-doshi.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2018,
+    "slug": "indian-institute-of-management",
+    "kind": "work",
+    "file": "assets/works/2018-indian-institute-of-management.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2019,
+    "slug": "arata-isozaki",
+    "kind": "portrait",
+    "file": "assets/portraits/2019-arata-isozaki.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2019,
+    "slug": "art-tower-mito",
+    "kind": "work",
+    "file": "assets/works/2019-art-tower-mito.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2020,
+    "slug": "shelley-mcnamara",
+    "kind": "portrait",
+    "file": "assets/portraits/2020-shelley-mcnamara.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2020,
+    "slug": "yvonne-farrell",
+    "kind": "portrait",
+    "file": "assets/portraits/2020-yvonne-farrell.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2020,
+    "slug": "bocconi-university",
+    "kind": "work",
+    "file": "assets/works/2020-bocconi-university.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2021,
+    "slug": "anne-lacaton",
+    "kind": "portrait",
+    "file": "assets/portraits/2021-anne-lacaton.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2021,
+    "slug": "jean-philippe-vassal",
+    "kind": "portrait",
+    "file": "assets/portraits/2021-jean-philippe-vassal.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2021,
+    "slug": "ensa-nantes",
+    "kind": "work",
+    "file": "assets/works/2021-ensa-nantes.jpeg",
+    "license": "",
+    "artist": "用户提供（mottimes）"
+  },
+  {
+    "status": "ok",
+    "year": 2022,
+    "slug": "di-b-do-francis-k-r",
+    "kind": "portrait",
+    "file": "assets/portraits/2022-di-b-do-francis-k-r.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2022,
+    "slug": "centre-for-earth-architecture",
+    "kind": "work",
+    "file": "assets/works/2022-centre-for-earth-architecture.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2023,
+    "slug": "david-chipperfield",
+    "kind": "portrait",
+    "file": "assets/portraits/2023-david-chipperfield.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2023,
+    "slug": "neues-museum",
+    "kind": "work",
+    "file": "assets/works/2023-neues-museum.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2024,
+    "slug": "riken-yamamoto",
+    "kind": "portrait",
+    "file": "assets/portraits/2024-riken-yamamoto.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2024,
+    "slug": "yokosuka-museum-of-art",
+    "kind": "work",
+    "file": "assets/works/2024-yokosuka-museum-of-art.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2025,
+    "slug": "liu-jiakun",
+    "kind": "portrait",
+    "file": "assets/portraits/2025-liu-jiakun.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2025,
+    "slug": "west-village",
+    "kind": "work",
+    "file": "assets/works/2025-west-village.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  },
+  {
+    "status": "ok",
+    "year": 2026,
+    "slug": "smiljan-radi-clarke",
+    "kind": "portrait",
+    "file": "assets/portraits/2026-smiljan-radi-clarke.jpg",
+    "license": "",
+    "artist": ""
+  },
+  {
+    "status": "ok",
+    "year": 2026,
+    "slug": "serpentine-pavilion-2014",
+    "kind": "work",
+    "file": "assets/works/2026-serpentine-pavilion-2014.jpg",
+    "license": "",
+    "artist": "Wikimedia Commons"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "file": "portraits/2012-wangshu.jpg",
+    "lang": "zh",
+    "title": "王澍",
+    "status": "no-image"
+  },
+  {
+    "file": "portraits/2004-hadid.jpg",
+    "lang": "en",
+    "title": "Zaha_Hadid",
+    "sourcePage": "https://en.wikipedia.org/wiki/Zaha_Hadid",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Zaha_Hadid_in_Heydar_Aliyev_Cultural_center_in_Baku_nov_2013.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "status": "ok"
+  },
+  {
+    "file": "portraits/1988-bunshaft.jpg",
+    "lang": "en",
+    "title": "Gordon_Bunshaft",
+    "status": "no-image"
+  },
+  {
+    "file": "portraits/1988-niemeyer.jpg",
+    "lang": "en",
+    "title": "Oscar_Niemeyer",
+    "sourcePage": "https://en.wikipedia.org/wiki/Oscar_Niemeyer",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Oscar_Niemeyer_1968b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "status": "ok"
+  },
+  {
+    "file": "works/2012-ningbo-museum.jpg",
+    "lang": "zh",
+    "title": "宁波博物馆",
+    "sourcePage": "https://zh.wikipedia.org/wiki/%E5%AE%81%E6%B3%A2%E5%8D%9A%E7%89%A9%E9%A6%86",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/zh/a/af/Logo_of_Ningbo_Museum.png?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "status": "ok"
+  },
+  {
+    "file": "works/2012-xiangshan.jpg",
+    "lang": "zh",
+    "title": "中国美术学院",
+    "sourcePage": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E7%BE%8E%E6%9C%AF%E5%AD%A6%E9%99%A2",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/CAA_Gate.jpg?utm_source=zh.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "status": "ok"
+  },
+  {
+    "file": "works/2004-zaragoza-bridge.jpg",
+    "lang": "en",
+    "title": "Bridge_Pavilion",
+    "sourcePage": "https://en.wikipedia.org/wiki/Bridge_Pavilion",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Pabell%C3%B3n-Puente_Zaragoza.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "status": "failed"
+  },
+  {
+    "file": "works/2004-vitra-fire-station.jpg",
+    "lang": "en",
+    "title": "Vitra_Fire_Station",
+    "sourcePage": "https://en.wikipedia.org/wiki/Vitra_Fire_Station",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Baden-W%C3%BCrttemberg_Weil_am_Rhein_Vitra_Fire_station_01.jpg/3840px-Baden-W%C3%BCrttemberg_Weil_am_Rhein_Vitra_Fire_station_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "status": "ok"
+  },
+  {
+    "file": "works/1988-beinecke.jpg",
+    "lang": "en",
+    "title": "Beinecke_Rare_Book_and_Manuscript_Library",
+    "sourcePage": "https://en.wikipedia.org/wiki/Beinecke_Rare_Book_and_Manuscript_Library",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Beinecke_Rare_Book_%26_Manuscript_Library_%2854106261813%29.jpg/3840px-Beinecke_Rare_Book_%26_Manuscript_Library_%2854106261813%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "status": "ok"
+  },
+  {
+    "file": "works/1988-lever-house.jpg",
+    "lang": "en",
+    "title": "Lever_House",
+    "sourcePage": "https://en.wikipedia.org/wiki/Lever_House",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lever_House_390_Park_Avenue.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "status": "ok"
+  },
+  {
+    "file": "works/1988-brasilia-cathedral.jpg",
+    "lang": "zh",
+    "title": "巴西利亚大教堂",
+    "status": "failed"
+  },
+  {
+    "file": "works/1988-brasilia-congress.jpg",
+    "lang": "en",
+    "title": "National_Congress_of_Brazil",
+    "sourcePage": "https://en.wikipedia.org/wiki/National_Congress_of_Brazil",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Brazil_Senate_2026.svg/500px-Brazil_Senate_2026.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "status": "ok"
+  }
+]

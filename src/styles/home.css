@@ -1,0 +1,496 @@
+/* home.css · C 时间轴官（.tl-）/ D 图表官（.cna- .cge-）/ 数据总览同屏 / Hero / 页脚 */
+
+/* ---------------- 页内 LOGO（随 Hero 滚动，不做全局悬浮） ---------------- */
+#brand{
+  display:block;width:26px;flex:0 0 auto;   /* 与档案页工具条 LOGO 同尺寸 */
+}
+#brand img{
+  width:100%;display:block;opacity:.86;
+  transition:opacity var(--dur-mic) var(--ease),transform var(--dur-mic) var(--ease);
+}
+#brand:hover img{opacity:1;transform:translateY(-2px);}
+#brand:focus-visible{outline:2px solid rgba(255,255,255,.72);outline-offset:6px;}
+
+/* ---------------- Hero ---------------- */
+#hero{
+  position:relative;height:100vh;min-height:560px;overflow:hidden;
+  display:flex;align-items:center;   /* 标题块整体上下居中 */
+}
+.hero-bg{position:absolute;inset:0;background:var(--ink);}
+/* 底图恒为灰阶（覆盖 blur-up 的 is-loaded 滤镜） */
+.hero-bg img,.hero-bg img.is-loaded{filter:grayscale(1) contrast(1.08) brightness(.62);}
+/* 轮播：每张滑入后淡入，旧图淡出后移除 */
+.hero-bg .hero-slide{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1.4s var(--ease);
+}
+.hero-bg .hero-slide.is-in{opacity:1;}
+.hero-veil{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(10,10,10,.42) 0%,rgba(10,10,10,.12) 42%,rgba(10,10,10,.68) 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;width:100%;max-width:var(--maxw);
+  margin:0 auto;padding:0 var(--pad) clamp(26px,5.5vh,64px);
+  color:#fff;
+}
+.hero-eyebrow{color:rgba(255,255,255,.72);margin-bottom:clamp(14px,2.4vh,26px);}
+.hero-title{
+  font-family:var(--font-cn-sans);           /* 中文大标题：思源黑体 */
+  font-weight:900;line-height:.94;letter-spacing:-.02em;
+  font-size:clamp(60px,12.2vw,208px);
+}
+.hero-title .hero-line{display:block;}
+.hero-latin{
+  font-family:var(--font-disp);font-weight:400;
+  font-size:clamp(12px,1.1vw,20px);letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);margin-left:.8em;vertical-align:middle;
+}
+.hero-foot{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:28px;flex-wrap:wrap;margin-top:clamp(22px,4vh,46px);
+}
+.hero-stats{display:flex;gap:clamp(37px,5.8vw,109px);}
+.hero-stats>div{display:flex;flex-direction:column-reverse;gap:7px;}
+.hero-stats dd{
+  font-family:var(--font-disp);              /* 强调数字：Outfit */
+  font-size:clamp(44px,5.1vw,75px);font-weight:600;line-height:1;
+}
+.hero-stats dt{font-family:var(--font-mono);font-size:17px;letter-spacing:.12em;color:rgba(255,255,255,.66);text-transform:uppercase;}
+.hero-quote{
+  max-width:min(72ch,calc(100% - 24px));   /* 向右加宽，长文案比例更稳 */
+  font-family:var(--font-cn-serif);font-size:13.5px;line-height:1.8;
+  color:rgba(255,255,255,.88);
+  min-height:3.6em;
+}
+.hero-quote .en{
+  display:block;margin-top:6px;
+  font-family:var(--font-display);font-size:12px;color:rgba(255,255,255,.6);
+  font-style:italic;
+}
+.hero-quote .src{
+  display:block;margin-top:6px;
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;color:rgba(255,255,255,.5);
+  text-transform:uppercase;
+}
+.hero-scroll{color:rgba(255,255,255,.58);padding-bottom:4px;}
+/* 右下角 scroll+logo：绝对定位到 #hero，中心线与上方奖牌中心线对齐 */
+.hero-tail{
+  position:absolute;z-index:2;
+  right:calc(var(--pad) + 1.5vw + clamp(75px,9vw,132.5px));  /* 奖牌右缘 + 半宽 */
+  bottom:clamp(26px,5.5vh,64px);
+  display:flex;align-items:flex-end;gap:18px;
+  transform:translateX(50%);   /* 右移自身半宽 → 整体中心线与奖牌中心线重合 */
+}
+
+/* ---------------- 奖章：透明抠图 + 厚度层 + 地面阴影 ---------------- */
+.hero-medal{
+  position:absolute;z-index:2;
+  right:calc(var(--pad) + 1.5vw);top:clamp(64px,10vh,120px);  /* 略微左移并上移，避开评审辞 */
+  width:clamp(150px,18vw,265px);                              /* 放大 1.25 倍 */
+  text-align:center;
+  cursor:grab;
+  user-select:none;-webkit-user-select:none;
+  touch-action:none;
+  outline-offset:8px;
+}
+.hero-medal:focus-visible{outline:2px solid rgba(255,255,255,.72);}
+.hero-medal.is-drag{cursor:grabbing;}
+.medal-stage{position:relative;perspective:900px;animation:medalFloat 9s var(--ease) infinite;}
+.hero-medal.is-drag .medal-stage{animation-play-state:paused;}
+.medal-coin{
+  position:relative;width:100%;aspect-ratio:1/1;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+/* 厚度：多层圆盘沿 Z 轴堆叠，旋转到侧面时显现金属侧壁
+   侧壁贴图由奖章正面实拍取样生成（tools/split_medal.py → medal-edge.png），保证材质一致 */
+.medal-edge{
+  position:absolute;inset:0;border-radius:50%;
+  background-image:url("../assets/brand/medal-edge.png");
+  background-size:100% 100%;background-repeat:no-repeat;
+}
+.medal-face{
+  position:absolute;inset:0;
+  background-repeat:no-repeat;background-size:100% 100%;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  pointer-events:none;
+}
+/* 正反面各外推半个厚度，与侧壁层共处同一圆柱体 */
+.medal-front{background-image:url("../assets/brand/medal-front.png");transform:translateZ(5.5px);}
+.medal-back{background-image:url("../assets/brand/medal-back.png");transform:rotateY(180deg) translateZ(5.5px);}
+/* 地面阴影：深色底上极易读作黑块，改为极轻的接触阴影（几乎不可见，仅托住体积） */
+.medal-shadow{
+  position:absolute;left:30%;right:30%;bottom:1%;height:4%;
+  background:radial-gradient(ellipse at center,rgba(0,0,0,.22),rgba(0,0,0,0) 70%);
+  filter:blur(8px);
+  pointer-events:none;
+}
+.hero-medal figcaption{
+  margin-top:10px;color:rgba(255,255,255,.55);letter-spacing:.18em;
+  display:flex;flex-direction:column;gap:3px;align-items:center;
+}
+.hero-medal .medal-hint{color:rgba(255,255,255,.38);}
+@keyframes medalFloat{
+  0%,100%{transform:translateY(0) rotate(-1.2deg);}
+  50%{transform:translateY(-9px) rotate(1.2deg);}
+}
+
+/* ---------------- 数据总览（国籍 × 地理 × 时间轴 同屏） ---------------- */
+#dash-sec{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  padding-top:clamp(30px,5vh,64px);
+}
+.dash-charts{
+  --core-h:clamp(380px,44vh,520px);
+  /* 地理图占大头：世界轮廓约 2:1，列越窄地图缩得越小 */
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.05fr);
+  gap:clamp(20px,3vw,48px);
+  align-items:start;
+  margin-top:clamp(10px,1.8vh,20px);
+}
+.chart-card{min-width:0;}
+/* 两图核心显示区域等高：国籍图圆形直径 = 核心高度；地理图高度锁定核心高度、左右裁切。
+   地理图必须显式裁切：投影只画到南纬 58°，而陆地数据到南纬 85°，
+   外溢部分会被 .chart-body 的 overflow:visible 放到卡片外（实测下方溢出 81px） */
+#chart-nations,#chart-geo{height:var(--core-h);}
+#chart-geo svg{width:100%;height:100%;overflow:hidden;}
+.chart-title{
+  display:flex;align-items:baseline;gap:10px;
+  font-family:var(--font-cn-serif);          /* 恢复原衬线字体 */
+  font-size:clamp(15px,1.35vw,19px);font-weight:900;letter-spacing:.01em;
+  padding-bottom:10px;
+}
+.chart-title .idx{font-size:10px;color:var(--g40);}
+.chart-title .en{font-family:var(--font-mono);font-size:9.5px;font-weight:400;color:var(--g40);letter-spacing:.18em;text-transform:uppercase;}
+.chart-body{position:relative;}
+.chart-body svg{display:block;margin:0 auto;overflow:visible;}
+.chart-status{
+  border-top:1px solid var(--hair);
+  padding-top:8px;margin-top:10px;
+}
+/* 大洲图例 + 选中状态同一行：图例靠左，状态靠右（空态不占位） */
+.dash-legend-row{
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:8px 14px;
+  margin-top:clamp(14px,2.4vh,26px);
+  padding-top:10px;
+  border-top:1px solid var(--hair);
+}
+.dash-legend-row .chart-status{border-top:0;padding:0;margin:0 0 0 auto;}
+.dash-legend-row .chart-status:empty{display:none;}
+.chart-status b{color:var(--ink);font-weight:600;}
+
+/* 图A：voronoi 灰阶（大洲整块 + 国家小块 + 大洲图例） */
+#chart-nations{display:flex;align-items:center;justify-content:center;}
+#chart-nations svg{flex:0 0 auto;}
+.cna-region-label{pointer-events:none;font-family:var(--font-mono);text-anchor:middle;letter-spacing:.16em;text-transform:uppercase;}
+.cna-cell{cursor:pointer;transition:opacity var(--dur-mic) var(--ease);}
+.cna-cell.is-dim{opacity:var(--op-12);}
+.cna-cell.is-preview-dim{opacity:var(--op-preview);}
+.cna-cell.is-hit{opacity:1;}
+.cna-cell:focus{outline:none;}
+.cna-cell:focus-visible{outline:none;}
+.cna-cell:focus-visible polygon{stroke:var(--ink);stroke-width:2.4;}
+.cna-label{pointer-events:none;font-family:var(--font-mono);text-anchor:middle;}
+/* 大洲轮廓：仅南美 / 非洲 / 大洋洲保留（其余大洲块面清晰，无需描边）
+   线宽为原来的 0.77 倍，颜色略变浅 */
+.cna-region-hl{
+  fill:none;stroke:rgba(10,10,10,.62);stroke-width:1.54;stroke-linejoin:round;
+  opacity:0;pointer-events:none;
+  transition:opacity var(--dur-mic) var(--ease);
+}
+.cna-region-hl.on{opacity:1;}
+
+/* 大洲图例：横排在图表下方的状态行处（原先竖排占在圆右侧，会把圆挤小） */
+.cna-legend{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.cna-legend-item{
+  display:flex;align-items:baseline;gap:9px;
+  padding:5px 8px;border:1px solid transparent;border-radius:2px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--g60);text-align:left;
+  transition:color var(--dur-mic) var(--ease),border-color var(--dur-mic) var(--ease),transform var(--dur-mic) var(--ease);
+}
+.cna-legend-item > span:not(.cnt){flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cna-legend-item i{
+  flex:0 0 auto;width:11px;height:11px;transform:rotate(45deg) translateY(-1px);
+  background:var(--tone,rgba(10,10,10,.5));
+}
+.cna-legend-item b{color:var(--ink);font-weight:600;}
+.cna-legend-item .cnt{margin-left:auto;color:var(--g40);}
+.cna-legend-item:hover{color:var(--ink);border-color:var(--hair);transform:translateX(3px);}
+.cna-legend-item:active{transform:translateX(3px) scale(.985);}
+.cna-legend-item[aria-pressed="true"]{color:var(--ink);border-color:var(--ink);}
+.cna-legend-item:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+
+/* 图B：世界点图 */
+.cge-land{fill:var(--ink);opacity:.08;}
+.cge-dot{cursor:pointer;transition:opacity var(--dur-mic) var(--ease);}
+.cge-dot.is-dim{opacity:var(--op-12);}
+.cge-dot.is-preview-dim{opacity:var(--op-preview);}
+.cge-dot.is-hit{opacity:1;}
+.cge-dot polygon{transition:transform var(--dur-mic) var(--ease),stroke var(--dur-mic) var(--ease);transform-box:fill-box;transform-origin:center;}
+.cge-dot.is-hit polygon{transform:scale(1.4);stroke:var(--ink);stroke-width:1.2;}
+.cge-dot:focus-visible{outline:none;}
+.cge-dot:focus-visible polygon{stroke:var(--ink);stroke-width:2;}
+.cge-name{pointer-events:none;font-family:var(--font-mono);font-size:9px;fill:var(--g60);text-anchor:middle;}
+
+/* 浮动 tooltip（自绘，替代原生 title） */
+.ui-tip{
+  position:absolute;z-index:9;pointer-events:none;
+  background:var(--ink);color:var(--paper);
+  font-family:var(--font-mono);font-size:10.5px;line-height:1.55;
+  padding:7px 10px;border-radius:2px;max-width:300px;
+  transform:translate(-50%,calc(-100% - 12px));
+  opacity:0;transition:opacity var(--dur-mic) var(--ease);
+  white-space:nowrap;
+}
+.ui-tip.on{opacity:1;}
+.ui-tip .tip-en{color:rgba(232,232,232,.62);display:block;}
+
+/* ---------------- 时间轴（C 时间轴官）---------------- */
+.dash-tl{
+  margin-top:clamp(18px,3.4vh,40px);
+  border-top:1px solid var(--hair);
+  padding-top:clamp(12px,2vh,22px);
+  flex:1 1 auto;
+  display:flex;flex-direction:column;
+}
+.dash-tl-head{
+  display:flex;align-items:baseline;
+  gap:16px;flex-wrap:wrap;margin-bottom:clamp(6px,1.2vh,14px);
+}
+.dash-tl-head .sec-note{max-width:60ch;margin-left:clamp(6px,1vw,18px);}
+.dash-tl-head .sec-tools{display:flex;gap:8px;margin-left:auto;}
+
+.tl-wrap{position:relative;padding-bottom:8px;--above-h:138px;--node-h:36px;}
+.tl-arcs{
+  position:absolute;left:0;top:0;width:100%;height:100%;
+  pointer-events:none;z-index:3;
+  opacity:0;transition:opacity var(--dur-blk) var(--ease);
+}
+.tl-wrap[data-layer="lineage"] .tl-arcs{opacity:1;}
+.tl-arcs path{
+  fill:none;stroke:var(--ink);stroke-width:1;opacity:.3;
+  transition:opacity var(--dur-mic) var(--ease),stroke-width var(--dur-mic) var(--ease);
+}
+.tl-arcs g.is-hot path{opacity:.95;stroke-width:1.4;}
+
+/* 年龄模式网格线（JS 注入刻度） */
+.tl-agegrid{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity var(--dur-blk) var(--ease);}
+.tl-wrap[data-layer="age"] .tl-agegrid{opacity:1;}
+.tl-agegrid .gl{position:absolute;left:0;right:0;border-top:1px dashed var(--g25);}
+.tl-agegrid .gl span{
+  position:absolute;left:0;top:-7px;
+  font-family:var(--font-mono);font-size:8.5px;color:var(--g40);letter-spacing:.08em;
+  background:var(--paper);padding-right:6px;
+}
+
+.tl{display:flex;align-items:stretch;width:100%;position:relative;z-index:2;}
+.tl-group{display:flex;flex:1 1 0;min-width:0;}
+.tl-item{
+  flex:1 1 0;min-width:0;
+  display:flex;flex-direction:column;
+  opacity:1;
+  transition:opacity var(--dur-mic) var(--ease);
+}
+.tl-item.is-dim{opacity:var(--op-dim);}
+.tl-item.is-preview-dim{opacity:var(--op-preview);}
+.tl-item:focus-visible{outline:2px solid var(--ink);outline-offset:5px;}
+.tl-item:focus-visible .tl-diamond::after{opacity:1;transform:translate(-50%,-50%) rotate(45deg) scale(1);}
+
+/* 轴上方：代表作（展开十年段才浮现） */
+.tl-above{height:var(--above-h);display:flex;align-items:flex-end;justify-content:center;}
+.tl-work{
+  writing-mode:vertical-rl;
+  font-size:8px;line-height:1.08;letter-spacing:0;   /* 统一字号 */
+  color:var(--g60);white-space:nowrap;
+  opacity:0;transform:translateY(8px);
+  transition:opacity var(--dur-blk) var(--ease),transform var(--dur-blk) var(--ease);
+}
+.tl-group.is-open .tl-work{opacity:1;transform:none;}
+/* 悬停聚焦窗口：以悬停届为基准左右各 5 年 */
+.tl-item.is-win .tl-work{opacity:1;transform:none;color:var(--ink);}   /* 窗口内作品名一并加深 */
+.tl-item.is-win .tl-name{opacity:1;transform:none;}   /* 默认最近十年 / 悬停窗口内的人名均显示 */
+/* 窗口年份文字最深（ink），背景年份比默认淡出更深（.4 > .12） */
+.tl.is-windowing .tl-item.is-win .tl-year{color:var(--ink);}
+.tl.is-windowing .tl-item:not(.is-win){opacity:.4;}
+.tl-item.is-hit .tl-work{color:var(--ink);}
+
+/* 选中/预览（如点选大洲、国家或年份）时，命中的届次直接展开姓名、国籍与代表作 */
+body[data-mode="sel"] .tl-item.is-hit .tl-work,
+body[data-mode="hov"] .tl-item.is-hit .tl-work,
+body[data-mode="sel"] .tl-item.is-hit .tl-name,
+body[data-mode="hov"] .tl-item.is-hit .tl-name{opacity:1;transform:none;}
+
+/* 节点区：轴线 + 菱形节点 */
+.tl-node{position:relative;height:var(--node-h);cursor:pointer;}
+.tl-node::before{
+  content:"";position:absolute;top:50%;left:0;right:0;height:1.5px;
+  background:var(--g25);transform:translateY(-50%);
+}
+.tl-group:first-child .tl-item:first-child .tl-node::before{background:linear-gradient(90deg,transparent 0%,transparent 50%,var(--g25) 50%);}
+.tl-group:last-child .tl-item:last-child .tl-node::before{background:linear-gradient(90deg,var(--g25) 0%,var(--g25) 50%,transparent 50%);}
+.tl-diamond{
+  position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  transition:transform var(--dur-blk) var(--ease);
+}
+.tl-diamond::after{
+  content:"";position:absolute;left:50%;top:50%;
+  width:16px;height:16px;
+  border:1px solid var(--g40);
+  transform:translate(-50%,-50%) rotate(45deg) scale(.4);
+  opacity:0;
+  transition:opacity var(--dur-mic) var(--ease),transform var(--dur-mic) var(--ease),border-color var(--dur-mic) var(--ease);
+}
+.tl-item:hover .tl-diamond::after,.tl-item:focus-within .tl-diamond::after{opacity:1;transform:translate(-50%,-50%) rotate(45deg) scale(1);}
+.tl-wrap[data-layer="age"] .tl-diamond{
+  transform:translate(-50%,-50%) translateY(var(--dy,0px));
+}
+.tl-diamond i{
+  display:block;width:var(--dsz,7px);height:var(--dsz,7px);
+  background:var(--ink);transform:rotate(45deg);
+  transition:transform var(--dur-mic) var(--ease);
+}
+.tl-item.is-hit .tl-diamond i{transform:rotate(45deg) scale(1.45);}
+.tl-item.is-hit .tl-diamond::after{opacity:1;transform:translate(-50%,-50%) rotate(45deg) scale(1);border-color:var(--ink);}
+.tl-item.is-sel .tl-diamond i{transform:rotate(45deg) scale(1.8);}
+.tl-age{
+  position:absolute;left:50%;top:50%;
+  transform:translate(-50%,calc(-50% - 15px));
+  font-family:var(--font-mono);font-size:9px;color:var(--g60);
+  opacity:0;transition:opacity var(--dur-blk) var(--ease),transform var(--dur-blk) var(--ease);
+}
+.tl-wrap[data-layer="age"] .tl-age{
+  transform:translate(-50%,calc(-50% + var(--dy,0px) - 15px));
+  opacity:1;
+}
+/* 年龄模式：上方作品名让位给年龄点与年龄数字（人名保留窗口的深色/渐变规则） */
+.tl-wrap[data-layer="age"] .tl-above{opacity:0;}
+.tl-wrap[data-layer="age"] .tl-item.is-win .tl-age{color:var(--ink);font-weight:600;}
+
+/* 年份 */
+.tl-year{
+  position:relative;
+  text-align:center;
+  font-family:var(--font-mono);font-size:8px;color:var(--g40);
+  padding-top:5px;line-height:1;
+}
+.tl-item[data-decade="1"] .tl-year{
+  font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink);   /* 恢复原字体 */
+}
+.tl-item[data-decade="1"] .tl-year::before{
+  content:"";position:absolute;left:50%;top:-3px;
+  width:1px;height:5px;background:var(--ink);
+}
+
+/* 轴下方：得主与国籍 */
+.tl-below{
+  height:146px;display:flex;justify-content:center;align-items:flex-start;
+  gap:3px;padding-top:10px;
+}
+.tl-name{
+  writing-mode:vertical-rl;
+  font-family:var(--font-cn-serif);           /* 恢复原衬线字体 */
+  font-size:10px;line-height:1.08;letter-spacing:.04em;font-weight:700;   /* 统一字号 */
+  color:var(--ink);white-space:nowrap;
+  opacity:0;transform:translateY(-8px);
+  transition:opacity var(--dur-blk) var(--ease),transform var(--dur-blk) var(--ease);
+}
+.tl-group.is-open .tl-name{opacity:1;transform:none;}
+.tl-item.is-hit .tl-name{opacity:1;transform:none;}
+
+/* 多人年份（1988/2010/2017/2020/2021）：按人数加宽列 + 收紧字号与列间距，避免与相邻年份粘连 */
+.tl-item[data-names="2"]{flex:1.1 1 0;}
+.tl-item[data-names="3"]{flex:1.25 1 0;}
+.tl-item[data-names="2"] .tl-name{font-size:8.4px;line-height:1.06;letter-spacing:.02em;}
+.tl-item[data-names="2"] .tl-below{gap:2px;}
+.tl-item[data-names="3"] .tl-name{font-size:6.8px;line-height:1.02;letter-spacing:0;}
+.tl-item[data-names="3"] .tl-below{gap:1px;}
+
+/* 选中/预览：命中届以墨色突出，其余届以浅色完整保留（姓名/国籍/代表作都可见，作为背景信息） */
+body[data-mode="sel"] .tl-item,
+body[data-mode="hov"] .tl-item{opacity:var(--op-100);}
+body[data-mode="sel"] .tl-item:not(.is-hit),
+body[data-mode="hov"] .tl-item:not(.is-hit){opacity:.56;}   /* 背景信息再浅一档 */
+body[data-mode="sel"] .tl-item:not(.is-hit) .tl-name,
+body[data-mode="hov"] .tl-item:not(.is-hit) .tl-name{opacity:1;transform:none;color:var(--g40);}
+body[data-mode="sel"] .tl-item:not(.is-hit) .tl-work,
+body[data-mode="hov"] .tl-item:not(.is-hit) .tl-work{opacity:1;transform:none;color:var(--g25);}
+body[data-mode="sel"] .tl-item:not(.is-hit) .tl-year,
+body[data-mode="hov"] .tl-item:not(.is-hit) .tl-year{color:var(--g25);}
+body[data-mode="sel"] .tl-item:not(.is-hit) .tl-diamond i,
+body[data-mode="hov"] .tl-item:not(.is-hit) .tl-diamond i{background:var(--g40);}
+body[data-mode="sel"] .tl-item.is-hit{opacity:var(--op-100);}
+body[data-mode="sel"] .tl-item.is-hit .tl-name,
+body[data-mode="sel"] .tl-item.is-hit .tl-work{color:var(--ink);}
+
+/* 窗口内的节点与轴线同样转墨色（并随各自的 --win-op 渐变） */
+body[data-mode="sel"] .tl-item.is-win .tl-diamond i,
+body[data-mode="hov"] .tl-item.is-win .tl-diamond i{background:var(--ink);}
+body[data-mode="sel"] .tl-item.is-win .tl-node::before,
+body[data-mode="hov"] .tl-item.is-win .tl-node::before{background:var(--ink);}
+
+/* 悬停聚焦窗口：整段（不止悬停那一届）人名/作品/年份一并加深。
+   必须排在上面 :not(.is-hit) 规则之后——两者优先级相同，靠顺序取胜 */
+body[data-mode="sel"] .tl-item.is-win,
+body[data-mode="hov"] .tl-item.is-win{opacity:var(--win-op,1);}   /* 窗口内由中心向两侧渐隐 */
+body[data-mode="sel"] .tl-item.is-win .tl-name,
+body[data-mode="hov"] .tl-item.is-win .tl-name,
+body[data-mode="sel"] .tl-item.is-win .tl-work,
+body[data-mode="hov"] .tl-item.is-win .tl-work,
+body[data-mode="sel"] .tl-item.is-win .tl-year,
+body[data-mode="hov"] .tl-item.is-win .tl-year{color:var(--ink);}
+
+/* 师承图层：线连到的「另一端」届次——年份/人名/作品/节点全部转墨色，整条不透明 */
+.tl-item.is-lin-end .tl-work,
+.tl-item.is-lin-end .tl-name{opacity:1;transform:none;}
+.tl-item.is-lin-end .tl-name{color:var(--ink);}
+body[data-mode="sel"] .tl-item.is-lin-end .tl-year,
+body[data-mode="hov"] .tl-item.is-lin-end .tl-year,
+body[data-mode="sel"] .tl-item.is-lin-end .tl-name,
+body[data-mode="hov"] .tl-item.is-lin-end .tl-name,
+body[data-mode="sel"] .tl-item.is-lin-end .tl-work,
+body[data-mode="hov"] .tl-item.is-lin-end .tl-work{color:var(--ink);}
+body[data-mode="sel"] .tl-item.is-lin-end .tl-diamond i,
+body[data-mode="hov"] .tl-item.is-lin-end .tl-diamond i{background:var(--ink);}
+.tl-wrap[data-layer="lineage"] .tl-item.is-lin-end{opacity:1;}
+
+/* ---------------- 滚动揭示（Apple § 反馈与克制：短促淡入上移） ---------------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity var(--dur-pg) var(--ease),transform var(--dur-pg) var(--ease);}
+.reveal.is-in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:opacity var(--dur-mic) linear;}
+}
+
+/* ---------------- 页脚 ---------------- */
+#foot{padding-bottom:clamp(40px,7vh,80px);}
+.foot-page{max-width:var(--maxw);margin:0 auto;padding:clamp(36px,8vh,90px) var(--pad) clamp(40px,7vh,80px);}
+.foot-rule{border-top:2px solid var(--ink);}
+.foot-grid{display:grid;gap:14px;padding-top:22px;}
+.foot-brand{display:flex;align-items:center;gap:14px;}   /* 第一行：logo 左 + 铭文右 */
+.foot-meta{display:flex;align-items:baseline;justify-content:space-between;gap:28px;flex-wrap:wrap;}  /* 第二行：署名左 + 数据来源右 */
+.foot-logo{width:22px;height:22px;opacity:.72;}   /* 缩小并降低权重，避免读作黑块 */
+.foot-author{color:var(--g60);}
+.foot-author b{color:var(--ink);font-weight:700;letter-spacing:.18em;}
+.foot-motto{color:var(--g40);}
+.foot-grid a{text-decoration:none;border-bottom:1px solid var(--g25);transition:border-color var(--dur-mic) var(--ease),color var(--dur-mic) var(--ease);}
+.foot-grid a:hover{border-bottom-color:var(--ink);}
+
+/* ---------------- 响应式 ---------------- */
+@media (max-width:1100px){
+  .dash-charts{grid-template-columns:1fr;}
+  #chart-nations,#chart-geo{height:auto;}
+  #chart-geo svg{height:auto;}
+}
+@media (max-width:860px){
+  .hero-medal{display:none;}
+  .tl-wrap{overflow-x:auto;padding-bottom:18px;}
+  .tl{min-width:1080px;}
+  .tl-arcs,.tl-agegrid{display:none;}
+  .hero-foot{flex-direction:column;align-items:flex-start;}
+  .tl-above{--above-h:88px;}
+  .tl-below{height:104px;}
+}

@@ -59,18 +59,18 @@
 .hero-stats dt{font-family:var(--font-mono);font-size:17px;letter-spacing:.12em;color:rgba(255,255,255,.66);text-transform:uppercase;}
 .hero-quote{
   max-width:min(72ch,calc(100% - 24px));   /* 向右加宽，长文案比例更稳 */
-  font-family:var(--font-cn-serif);font-size:13.5px;line-height:1.8;
+  font-family:var(--font-cn-serif);font-size:16px;line-height:1.8;
   color:rgba(255,255,255,.88);
   min-height:3.6em;
 }
 .hero-quote .en{
   display:block;margin-top:6px;
-  font-family:var(--font-display);font-size:12px;color:rgba(255,255,255,.6);
+  font-family:var(--font-display);font-size:14px;color:rgba(255,255,255,.6);
   font-style:italic;
 }
 .hero-quote .src{
   display:block;margin-top:6px;
-  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;color:rgba(255,255,255,.5);
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;color:rgba(255,255,255,.5);
   text-transform:uppercase;
 }
 .hero-scroll{color:rgba(255,255,255,.58);padding-bottom:4px;}

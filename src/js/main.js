@@ -81,7 +81,11 @@
     S.editions().forEach(function (ed) {
       var c = cites[String(ed.year)];
       if (!c || !(c.quote_en || c.quote_cn)) return;
-      var w = (ed.works || []).filter(function (x) { return x.photo; })[0];
+      /* 底图规则：只用代表作照片，绝不用建筑师肖像（肖像只在档案/详情页用）；
+         这里按路径兜底过滤 portraits/，内容层面的错配由 fetch_missing_works 的词元核验兜住 */
+      var w = (ed.works || []).filter(function (x) {
+        return x.photo && x.photo.indexOf("portraits/") === -1;
+      })[0];
       if (!w) return;
       pairs.push({
         year: ed.year,

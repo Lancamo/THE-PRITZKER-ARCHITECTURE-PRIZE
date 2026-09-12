@@ -170,11 +170,12 @@ def verify_existing(doc: dict, report: list) -> list:
 
     kept, dropped = [], 0
     for rec in report:
-        if rec.get("kind") != "work" or rec.get("artist") or not rec.get("file"):
+        if rec.get("kind") != "work" or not rec.get("file"):
             kept.append(rec)
             continue
         titles = works_by_key.get((rec.get("year"), rec.get("slug")))
-        if titles and not matches(rec.get("title") or "", titles):
+        # 只对带页面标题的记录做词元复核（旧记录若连标题都没有，无从校验，保留、由人工抽检兜底）
+        if titles and rec.get("title") and not matches(rec.get("title"), titles):
             path = ROOT / rec["file"]
             try:
                 if path and path.exists():

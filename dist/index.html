@@ -1201,6 +1201,24 @@ body.is-archive-open{background:var(--night);}
   .dt-work--half .dt-work-cap{flex-direction:row;}
   .dt-hero{height:64vh;}
 }
+
+/* shenzhen.css · 深圳章节 —— 以独立模块（assets/shenzhen/）整幅嵌入：
+   外框只负责「占一屏 + 底色衔接」，模块内保留其完整版式与交互 */
+.sz-sec{
+  max-width:none;
+  margin:0;
+  padding:0;
+  height:100vh;
+  min-height:620px;
+  background:#EFEFED;               /* 与模块自身底色一致，章节成整幅 */
+}
+.sz-sec iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#EFEFED;
+}
 </style>
 </head>
 <body>
@@ -1282,6 +1300,11 @@ body.is-archive-open{background:var(--night);}
           <ol class="tl" id="tl"></ol>
         </div>
       </div>
+    </section>
+
+    <!-- 深圳 · 普利兹克建筑奖得主作品分布：独立模块（assets/shenzhen/）整幅嵌入 -->
+    <section class="sec sz-sec" id="sz-sec" aria-label="深圳 · 普利兹克建筑奖得主作品分布">
+      <iframe id="sz-frame" src="../assets/shenzhen/index.html" title="深圳 · 普利兹克建筑奖得主作品分布" loading="lazy"></iframe>
     </section>
 
     <footer class="sec" id="foot"></footer>

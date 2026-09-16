@@ -21,7 +21,7 @@ DATA = ROOT / "data"
 FONTS = ROOT / "assets" / "fonts"
 OUT = ROOT / "dist" / "index.html"
 
-CSS_FILES = ["tokens.css", "base.css", "home.css", "archive.css", "detail.css"]
+CSS_FILES = ["tokens.css", "base.css", "home.css", "archive.css", "detail.css", "shenzhen.css"]
 JS_FILES = [
     "util.js", "store.js", "router.js", "transition.js",
     "timeline.js", "chart-nations.js", "chart-geo.js",

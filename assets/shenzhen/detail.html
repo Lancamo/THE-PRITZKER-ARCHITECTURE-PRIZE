@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作品详情 · 深圳普利兹克建筑奖得主作品分布</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .d-hero.is-empty {
+    height: 300px;
+    display: grid;
+    place-items: center;
+    background: #E7E7E5;
+    border: 1px solid var(--rule);
+  }
+  .d-hero.is-empty svg {
+    width: 164px; height: 164px;
+    fill: none; stroke: #B8B8B4;
+    stroke-width: .9;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .d-hero.is-empty .cap {
+    margin-top: 20px;
+    font: 400 10px var(--mono);
+    letter-spacing: .16em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .d-hero.is-empty .inner { text-align: center; }
+
+  .mini {
+    margin-top: 14px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    padding: 12px;
+  }
+  .mini .lbl {
+    font: 400 9.5px var(--mono);
+    letter-spacing: .16em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-bottom: 9px;
+  }
+  .mini svg { width: 100%; display: block; }
+  .mini .m-sea { fill: #DBE6F0; }
+  .mini .m-land { fill: #F4F5F3; }
+  .mini .m-city { fill: #FFFFFF; }
+  .mini .m-terr { fill: #EFF1EC; }
+  .mini .m-terr-hi { fill: #E1E5DC; }
+  .mini .m-water { fill: #C9DCEA; }
+  .mini .m-dist { fill: none; stroke: #C2C2BE; stroke-width: .6; }
+  .mini .m-line { fill: none; stroke: #33332D; stroke-width: 1; stroke-linejoin: round; }
+  .mini .dot { fill: #B7B7B3; }
+  .mini .dot-now { fill: var(--ink); }
+  .mini .ring { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+
+  .d-text p { white-space: pre-line; }
+</style>
+</head>
+<body>
+
+<div class="detail">
+
+  <div class="d-top">
+    <a class="back" href="index.html"><i></i>返回分布图</a>
+    <div class="d-nav">
+      <a id="prevLink" href="#">← 上一件</a>
+      <a id="nextLink" href="#">下一件 →</a>
+    </div>
+  </div>
+
+  <div class="d-head">
+    <div class="lead">
+      <div class="d-index"><span class="bar"></span><span id="dIdx"></span></div>
+      <h1 id="dName"></h1>
+      <div class="en" id="dEn"></div>
+      <div class="tagline" id="dTag"></div>
+    </div>
+    <aside class="d-arch">
+      <div class="pic"><img id="dAvatar" src="" alt=""></div>
+      <div class="nm" id="dArch"></div>
+      <div class="nm-en" id="dArchEn"></div>
+      <div class="prize" id="dPrize"></div>
+    </aside>
+  </div>
+
+  <figure class="d-hero" id="dHero"></figure>
+
+  <div class="d-body">
+    <div class="d-text">
+      <h2>作品简介</h2>
+      <p id="dDesc"></p>
+    </div>
+
+    <aside class="d-facts">
+      <h2>关键信息</h2>
+      <dl id="dFacts"></dl>
+
+      <div class="d-loc">
+        <div class="lbl">位置</div>
+        <div class="val" id="dAddr"></div>
+        <div class="geo" id="dGeo"></div>
+      </div>
+
+      <div class="mini">
+        <div class="lbl">在深圳的位置</div>
+        <svg id="miniMap" viewBox="0 0 1200 682.1" aria-label="位置示意"></svg>
+      </div>
+    </aside>
+  </div>
+
+  <section class="d-others">
+    <h2>全部作品</h2>
+    <div class="d-grid" id="dGrid"></div>
+  </section>
+
+  <div class="d-credit">
+    <b>资料来源</b>　有方 archiposition《7 位普利兹克奖得主的深圳实践》· 各事务所官方资料（OMA / Foster + Partners / Maki and Associates / RPBW / Morphosis 等）· 深圳特区报 · OpenStreetMap。地图底图取自 OpenStreetMap 行政边界与海岸线（ODbL），地形取自 SRTM 30m（NASA/USGS）。建筑师肖像与建筑实景照片来自 Wikimedia Commons，版权归原作者所有，此处仅作研究展示之用。
+  </div>
+
+</div>
+
+<script src="assets/map-base.js"></script>
+<script src="assets/data.js"></script>
+<script>
+(function () {
+  'use strict';
+  var LIST = window.PRITZKER.buildings;
+  var params = new URLSearchParams(location.search);
+  var id = params.get('id');
+  var idx = 0;
+  for (var i = 0; i < LIST.length; i++) { if (LIST[i].id === id) { idx = i; break; } }
+  var b = LIST[idx];
+
+  document.title = b.name + ' · 深圳普利兹克建筑奖得主作品分布';
+
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  document.getElementById('dIdx').textContent = pad(idx + 1) + ' / ' + pad(LIST.length);
+  document.getElementById('dName').textContent = b.name;
+  document.getElementById('dEn').textContent = b.en;
+  document.getElementById('dTag').textContent = b.tagline;
+
+  document.getElementById('dAvatar').src = b.avatar;
+  document.getElementById('dAvatar').alt = b.architect;
+  document.getElementById('dArch').textContent = b.architect;
+  document.getElementById('dArchEn').textContent = b.architectEn;
+  document.getElementById('dPrize').innerHTML =
+    '<b>' + b.prizeNote + '</b>' + b.firm + '<br>' + b.firmEn;
+
+  // 主图 / 无照片时的剪影版式
+  var hero = document.getElementById('dHero');
+  if (b.photo) {
+    hero.innerHTML = '<img src="' + b.photo + '" alt="' + b.name + '">' +
+      (b.photoCaption ? '<figcaption>' + b.photoCaption + '</figcaption>' : '');
+  } else {
+    hero.className = 'd-hero is-empty';
+    hero.innerHTML = '<div class="inner">' +
+      '<svg viewBox="0 0 24 24">' + b.logo + '</svg>' +
+      '<div class="cap">' + b.en + '<br>' + (b.status === '在建' ? '方案 / 在建 — 暂无建成实景' : '暂缺实景照片') + '</div>' +
+      '</div>';
+  }
+
+  document.getElementById('dDesc').textContent = b.desc;
+
+  document.getElementById('dFacts').innerHTML = b.facts.map(function (f) {
+    return '<div class="row"><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>';
+  }).join('');
+
+  document.getElementById('dAddr').textContent = b.district + ' · ' + b.address;
+  document.getElementById('dGeo').textContent =
+    'N ' + b.lat.toFixed(4) + '°　E ' + b.lon.toFixed(4) + '°　·　' + b.type + '　·　' + b.status;
+
+  // 迷你定位图：与主页共用同一套底图数据，位置口径完全一致
+  var SZB = window.SZ_BASE;
+  var m = [];
+  ['sea', 'land', 'city', 'terrainLow', 'terrainHigh', 'water'].forEach(function (k) {
+    var cls = { sea: 'm-sea', land: 'm-land', city: 'm-city', terrainLow: 'm-terr',
+                terrainHigh: 'm-terr m-terr-hi', water: 'm-water' }[k];
+    (SZB[k] || []).forEach(function (d) {
+      m.push('<path class="' + cls + '" d="' + d + '"/>');
+    });
+  });
+  SZB.districts.forEach(function (x) {
+    m.push('<path class="m-dist" d="' + x.d + '"/>');
+  });
+  SZB.cityLine.forEach(function (d) { m.push('<path class="m-line" d="' + d + '"/>'); });
+
+  LIST.forEach(function (x) {
+    var s = SZB.sites[x.id];
+    if (!s || x.id === b.id) return;
+    m.push('<circle class="dot" cx="' + s[0] + '" cy="' + s[1] + '" r="11"/>');
+  });
+  var sp = SZB.sites[b.id] || [SZB.W / 2, SZB.H / 2];
+  m.push('<circle class="ring" cx="' + sp[0] + '" cy="' + sp[1] + '" r="32"/>');
+  m.push('<circle class="dot-now" cx="' + sp[0] + '" cy="' + sp[1] + '" r="14"/>');
+  document.getElementById('miniMap').innerHTML = m.join('');
+
+  // 上一件 / 下一件
+  var prev = LIST[(idx - 1 + LIST.length) % LIST.length];
+  var next = LIST[(idx + 1) % LIST.length];
+  var pl = document.getElementById('prevLink'), nl = document.getElementById('nextLink');
+  pl.href = 'detail.html?id=' + prev.id;
+  pl.textContent = '← ' + prev.short;
+  nl.href = 'detail.html?id=' + next.id;
+  nl.textContent = next.short + ' →';
+
+  // 全部作品
+  document.getElementById('dGrid').innerHTML = LIST.map(function (x, i) {
+    return '<a class="d-tile" href="detail.html?id=' + x.id + '">' +
+      '<div class="t-logo"><svg viewBox="0 0 24 24">' + x.logo + '</svg></div>' +
+      '<div class="t-nm">' + x.short + '</div>' +
+      '<div class="t-ar">' + x.architect + ' · ' + x.year + '</div></a>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

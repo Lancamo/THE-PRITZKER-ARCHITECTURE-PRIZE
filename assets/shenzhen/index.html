@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>深圳 · 普利兹克建筑奖得主作品分布</title>
+<meta name="description" content="自 2007 年至今，10 位普利兹克建筑奖得主在深圳留下 11 件建筑作品。以深圳地图为底，标注每件作品的位置、建筑师与简介。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="head">
+    <div class="head-left">
+      <div class="chapno">A</div>
+      <div>
+        <h1>深圳 · 普利兹克建筑奖得主作品分布</h1>
+        <div class="sub">Pritzker Prize Architecture in Shenzhen</div>
+      </div>
+    </div>
+    <div class="head-right">
+      <div class="stat">10<em>/</em>11</div>
+      <div class="stat-label">建筑师 / 建成与在建作品</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <div class="map-wrap" id="mapWrap">
+      <svg class="map" id="mapSvg" viewBox="0 0 1200 682.1" preserveAspectRatio="xMidYMid meet" role="img" aria-label="深圳市普利兹克奖得主建筑作品分布图"></svg>
+      <div class="mk-layer" id="logoLayer"></div>
+      <div class="av-layer" id="avatarLayer"></div>
+      <div class="card" id="card" role="tooltip"></div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="index" id="index"></div>
+    <div class="foot-note">
+      <b>读图</b>　黑圆为作品实测坐标，圆像为建筑师。相邻作品的 logo 重叠即真实密度；头像只作聚拢注记，悬停任一头像即显示其指向的作品位置。<br>
+      <b>底图</b>　OpenStreetMap 行政边界与海岸线（ODbL）· SRTM 30m 高程（NASA/USGS）· 等距圆柱投影<br>
+      <b>资料</b>　有方 archiposition · 各事务所官方资料 · Wikimedia Commons
+    </div>
+  </footer>
+
+</div>
+
+<script src="assets/map-base.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

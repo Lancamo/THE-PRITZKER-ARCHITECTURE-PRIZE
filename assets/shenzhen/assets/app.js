@@ -232,8 +232,9 @@
     a.dataset.id = b.id;
     a.href = 'detail.html?id=' + b.id;
     a.innerHTML =
-      '<div class="ix-name">' + b.name + '</div>' +
-      '<div class="ix-meta">' + b.year + ' · ' + b.architect + '</div>';
+      '<span class="ix-name">' + b.name + '</span>' +
+      '<span class="ix-yr">' + b.year + '</span>' +
+      '<span class="ix-arch">' + b.architect + '</span>';
     a.addEventListener('mouseenter', function () { cancelHide(); activate(b.id); });
     a.addEventListener('mouseleave', scheduleHide);
     a.addEventListener('focus', function () { cancelHide(); activate(b.id); });

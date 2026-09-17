@@ -160,47 +160,68 @@ a { color: inherit; text-decoration: none; }
 .av.is-dim { opacity: .26; }
 .av.is-active { z-index: 10; }
 
-/* ---- 图例：叠放在图纸左上角（建筑全名 / 年代 / 建筑师） ---- */
+/* ---- 图例：图纸左上角，沿一条向下的年代轴排列（无底色，同时间轴总览的气质） ---- */
 .legend {
   position: absolute;
-  left: 14px;
-  top: 14px;
+  left: 18px;
+  top: 18px;
   z-index: 5;
-  background: rgba(255, 255, 255, .93);
-  border: 1px solid var(--rule);
-  padding: 9px 12px 7px;
-  max-height: calc(100% - 28px);
-  overflow-y: auto;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  padding-left: 18px;
+}
+.legend::before {                    /* 向下的年代轴 */
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  bottom: 3px;
+  width: 1px;
+  background: var(--ink-4);
+}
+.legend::after {                     /* 轴底端的箭头 */
+  content: "";
+  position: absolute;
+  left: 3px;
+  bottom: 0;
+  width: 5px; height: 5px;
+  border-right: 1px solid var(--ink-4);
+  border-bottom: 1px solid var(--ink-4);
+  transform: rotate(45deg);
 }
 
 .ix {
-  display: block;
-  padding: 5px 0 6px;
-  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  position: relative;
+  padding: 2px 0 3px;
   cursor: pointer;
   transition: opacity .2s ease;
 }
-.ix:last-child { border-bottom: none; padding-bottom: 2px; }
+.ix::before {                        /* 轴上的菱形节点 */
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  width: 5px; height: 5px;
+  background: var(--ink);
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform .18s ease;
+}
+.ix:hover::before,
+.ix.is-active::before { transform: translateY(-50%) rotate(45deg) scale(1.5); }
 .ix-name {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: .01em;
 }
-.ix-meta {
-  margin-top: 2px;
-  font: 400 10px var(--mono);
-  color: var(--ink-3);
-  letter-spacing: .03em;
-}
-.ix:hover .ix-name { color: #000; }
+.ix-yr { font: 400 9.5px var(--mono); color: var(--ink-3); letter-spacing: .03em; }
+.ix-arch { font-size: 11px; color: var(--ink-2); }
 .legend.has-hover .ix { opacity: .35; }
 .legend.has-hover .ix:hover,
 .legend.has-hover .ix.is-active { opacity: 1; }
 
-/* ---- 信息面板：自右侧滑出，高度与底图一致 ---- */
+/* ---- 信息面板：自右侧滑出（渐变玻璃质感，过渡更自然），高度与底图一致 ---- */
 .card {
   position: absolute;
   right: 0;
@@ -208,18 +229,23 @@ a { color: inherit; text-decoration: none; }
   bottom: 0;
   z-index: 20;
   width: min(360px, 44%);
-  background: rgba(255, 255, 255, .97);
-  border-left: 1px solid var(--rule);
+  background: linear-gradient(90deg, rgba(255, 255, 255, .72), rgba(255, 255, 255, .97) 36%);
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
+  backdrop-filter: blur(10px) saturate(1.05);
+  border-left: 1px solid rgba(255, 255, 255, .65);
+  box-shadow: -26px 0 52px rgba(0, 0, 0, .12);
   padding: 22px 24px 20px;
   overflow-y: auto;
   transform: translateX(calc(100% + 2px));
+  opacity: 0;
   visibility: hidden;
-  transition: transform .5s cubic-bezier(.32,.72,0,1), visibility 0s .5s;
+  transition: transform .55s cubic-bezier(.32,.72,0,1), opacity .4s var(--ease), visibility 0s .55s;
 }
 .card.is-open {
   transform: translateX(0);
+  opacity: 1;
   visibility: visible;
-  transition: transform .5s cubic-bezier(.32,.72,0,1);
+  transition: transform .55s cubic-bezier(.32,.72,0,1), opacity .5s var(--ease) .08s;
 }
 
 .card-photo {
@@ -553,9 +579,10 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 820px) {
   .page { padding: 10px 10px 8px; }
   .map-wrap { max-width: 100%; }
-  .legend { left: 10px; top: 10px; padding: 8px 10px 6px; max-height: 42%; }
-  .ix-name { font-size: 11.5px; }
-  .ix-meta { font-size: 9.5px; }
+  .legend { left: 10px; top: 10px; max-height: 46%; overflow-y: auto; }
+  .ix-name { font-size: 11px; }
+  .ix-yr { font-size: 9px; }
+  .ix-arch { font-size: 10px; }
   .card { width: 100%; border-left: none; padding: 18px 18px 16px; }
   .card-photo { margin: -18px -18px 14px; }
   .card-name { font-size: 17px; }

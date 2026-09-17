@@ -198,10 +198,10 @@
         bio.classList.toggle("is-open");
         requestAnimationFrame(function () {
           if (opening) {
-            window.scrollBy(0, bio.getBoundingClientRect().top - before);
+            window.scrollBy({ top: bio.getBoundingClientRect().top - before, left: 0, behavior: "instant" });
           } else if (item) {
             var top = item.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.30;
-            window.scrollTo(0, Math.max(0, top));
+            window.scrollTo({ top: Math.max(0, top), left: 0, behavior: "instant" });
           }
         });
       });
@@ -318,10 +318,11 @@
 
   function scrollToYear(year) {
     var t = year ? el.querySelector("#ar-" + year) : null;
-    if (!t) { window.scrollTo(0, 0); return; }
+    /* 定位一律即时（主站全局 smooth，不指定 instant 会产生长距离滑动） */
+    if (!t) { window.scrollTo({ top: 0, left: 0, behavior: "instant" }); return; }
     requestAnimationFrame(function () {
       var top = t.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.30;
-      window.scrollTo(0, Math.max(0, top));
+      window.scrollTo({ top: Math.max(0, top), left: 0, behavior: "instant" });
     });
   }
 
@@ -386,7 +387,7 @@
       if (silent) return;
       homeEl.hidden = false;
       detailEl.hidden = true;
-      window.scrollTo(0, savedScroll);
+      window.scrollTo({ top: savedScroll, left: 0, behavior: "instant" });
     }
   };
 })();

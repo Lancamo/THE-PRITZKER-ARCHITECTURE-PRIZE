@@ -1820,7 +1820,7 @@ window.__DATA__ = {"editions":[{"year":1979,"laureates":[{"name_cn":"菲利普·
       NS.detail.render(year, doss);
       homeEl.hidden = true;
       detailEl.hidden = false;
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
       detailEl.classList.remove("enter");
       void detailEl.offsetWidth; /* 强制重排，保证跨届切换时入场动画可重放 */
 
@@ -1850,7 +1850,7 @@ window.__DATA__ = {"editions":[{"year":1979,"laureates":[{"name_cn":"菲利普·
         detailEl.classList.remove("enter");
         if (silent) return;
         homeEl.hidden = false;
-        window.scrollTo(0, homeScroll);
+        window.scrollTo({ top: homeScroll, left: 0, behavior: "instant" });
       };
       if (U.prefersReduce() || detailEl.hidden) { finish(); return; }
       veil.style.transform = "none";
@@ -3064,10 +3064,10 @@ window.__DATA__ = {"editions":[{"year":1979,"laureates":[{"name_cn":"菲利普·
         bio.classList.toggle("is-open");
         requestAnimationFrame(function () {
           if (opening) {
-            window.scrollBy(0, bio.getBoundingClientRect().top - before);
+            window.scrollBy({ top: bio.getBoundingClientRect().top - before, left: 0, behavior: "instant" });
           } else if (item) {
             var top = item.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.30;
-            window.scrollTo(0, Math.max(0, top));
+            window.scrollTo({ top: Math.max(0, top), left: 0, behavior: "instant" });
           }
         });
       });
@@ -3184,10 +3184,11 @@ window.__DATA__ = {"editions":[{"year":1979,"laureates":[{"name_cn":"菲利普·
 
   function scrollToYear(year) {
     var t = year ? el.querySelector("#ar-" + year) : null;
-    if (!t) { window.scrollTo(0, 0); return; }
+    /* 定位一律即时（主站全局 smooth，不指定 instant 会产生长距离滑动） */
+    if (!t) { window.scrollTo({ top: 0, left: 0, behavior: "instant" }); return; }
     requestAnimationFrame(function () {
       var top = t.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.30;
-      window.scrollTo(0, Math.max(0, top));
+      window.scrollTo({ top: Math.max(0, top), left: 0, behavior: "instant" });
     });
   }
 
@@ -3252,7 +3253,7 @@ window.__DATA__ = {"editions":[{"year":1979,"laureates":[{"name_cn":"菲利普·
       if (silent) return;
       homeEl.hidden = false;
       detailEl.hidden = true;
-      window.scrollTo(0, savedScroll);
+      window.scrollTo({ top: savedScroll, left: 0, behavior: "instant" });
     }
   };
 })();

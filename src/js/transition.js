@@ -61,7 +61,7 @@
       NS.detail.render(year, doss);
       homeEl.hidden = true;
       detailEl.hidden = false;
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
       detailEl.classList.remove("enter");
       void detailEl.offsetWidth; /* 强制重排，保证跨届切换时入场动画可重放 */
 
@@ -91,7 +91,7 @@
         detailEl.classList.remove("enter");
         if (silent) return;
         homeEl.hidden = false;
-        window.scrollTo(0, homeScroll);
+        window.scrollTo({ top: homeScroll, left: 0, behavior: "instant" });
       };
       if (U.prefersReduce() || detailEl.hidden) { finish(); return; }
       veil.style.transform = "none";

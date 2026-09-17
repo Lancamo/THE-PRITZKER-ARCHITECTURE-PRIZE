@@ -158,11 +158,14 @@
       '<div class="card-arch">' +
         '<div class="pic"><img src="' + b.avatar + '" alt="' + b.architect + '"></div>' +
         '<div class="who">' + b.architect + '<span>' + b.architectEn + '</span></div>' +
-        '<div class="badge">Pritzker ' + b.prizeYear + '</div>' +
+        '<div class="card-prize">' +
+          '<img class="card-medal" src="../brand/medal-front.png" alt="普利兹克奖章（正面）">' +
+          '<span class="badge">Pritzker ' + b.prizeYear + '</span>' +
+        '</div>' +
       '</div>' +
       '<div class="card-tag">' + b.tagline + '</div>' +
       '<div class="card-facts">' + factsHTML(b) + '</div>' +
-      '<div class="card-go">查看详情 <i></i></div>';
+      '<a class="card-go" href="detail.html?id=' + b.id + '">查看详情 <i></i></a>';
   }
 
   var activeId = null, hideTimer = null, pinned = false;
@@ -232,6 +235,7 @@
     a.dataset.id = b.id;
     a.href = 'detail.html?id=' + b.id;
     a.innerHTML =
+      '<span class="ix-logo" aria-hidden="true"><svg viewBox="0 0 24 24">' + b.logo + '</svg></span>' +
       '<span class="ix-name">' + b.name + '</span>' +
       '<span class="ix-yr">' + b.year + '</span>' +
       '<span class="ix-arch">' + b.architect + '</span>';

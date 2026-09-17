@@ -129,14 +129,14 @@ a { color: inherit; text-decoration: none; }
   margin: calc(var(--av) / -2) 0 0 calc(var(--av) / -2);
   border-radius: 50%;
   overflow: hidden;
-  border: 1.5px solid var(--paper);
+  border: 2px solid var(--ink);
   background: #D9D9D8;
-  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, .92), 0 1px 4px rgba(0, 0, 0, .16);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .18);
   pointer-events: auto;
   cursor: pointer;
   z-index: 2;
   transition: transform .22s cubic-bezier(.32,.72,0,1),
-              border-color .2s ease, opacity .25s ease;
+              opacity .25s ease;
 }
 .av img {
   width: 100%;
@@ -146,13 +146,10 @@ a { color: inherit; text-decoration: none; }
   filter: grayscale(1) contrast(1.02) brightness(1.07);
   transition: filter .25s ease;
 }
-/* 簇内头像加一圈淡环，暗示「同属一处」 */
-.av.is-clustered { border-color: #E8E8E8; }
 
 .av:hover,
 .av.is-active {
   transform: scale(1.18);
-  border-color: var(--ink);
 }
 .av:hover img,
 .av.is-active img { filter: grayscale(0) contrast(1); }
@@ -160,13 +157,19 @@ a { color: inherit; text-decoration: none; }
 .av.is-dim { opacity: .26; }
 .av.is-active { z-index: 10; }
 
-/* ---- 图例：图纸左上角，沿一条向下的年代轴排列（无底色，同时间轴总览的气质） ---- */
+/* ---- 图例：图纸左上角，沿一条向下的年代轴排列；底衬半透明白并向右侧自然渐隐 ---- */
 .legend {
   position: absolute;
   left: 18px;
   top: 18px;
   z-index: 5;
-  padding-left: 18px;
+  padding: 10px 52px 10px 18px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, .82) 0%,
+    rgba(255, 255, 255, .66) 58%,
+    rgba(255, 255, 255, .28) 82%,
+    rgba(255, 255, 255, 0) 100%);
 }
 .legend::before {                    /* 向下的年代轴 */
   content: "";
@@ -190,7 +193,7 @@ a { color: inherit; text-decoration: none; }
 
 .ix {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 9px;
   position: relative;
   padding: 2px 0 3px;
@@ -209,6 +212,19 @@ a { color: inherit; text-decoration: none; }
 }
 .ix:hover::before,
 .ix.is-active::before { transform: translateY(-50%) rotate(45deg) scale(1.5); }
+.ix-logo {                           /* 建筑轮廓剪影：黑底圆 logo */
+  flex: 0 0 auto;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: grid; place-items: center;
+}
+.ix-logo svg {
+  width: 64%; height: 64%;
+  display: block;
+  fill: none; stroke: #fff;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+}
 .ix-name {
   font-size: 12px;
   font-weight: 500;
@@ -299,8 +315,19 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: .05em;
   margin-top: 3px;
 }
-.card-arch .badge {
+.card-prize {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
+}
+.card-medal {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.card-arch .badge {
   font: 400 10px var(--mono);
   color: var(--ink-2);
   border: 1px solid var(--rule);
@@ -329,23 +356,30 @@ a { color: inherit; text-decoration: none; }
 }
 .card-facts b { color: var(--ink); font-weight: 500; }
 
+/* 「查看详情」：整条按钮化——边框包住整行、点击范围即视觉范围 */
 .card-go {
-  margin-top: 18px;
-  font: 400 10.5px var(--mono);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--ink);
+  font: 500 11px var(--mono);
   letter-spacing: .14em;
   color: var(--ink);
   text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
 }
 .card-go i {
   display: block;
-  width: 18px; height: 1px;
-  background: var(--ink);
+  width: 20px; height: 1px;
+  background: currentColor;
   transition: width .22s ease;
 }
-.card:hover .card-go i { width: 30px; }
+.card-go:hover { background: var(--ink); color: #fff; }
+.card-go:hover i { width: 30px; }
 
 /* --------------------------------------------------------------- 详情页 */
 
@@ -358,20 +392,26 @@ a { color: inherit; text-decoration: none; }
   padding-bottom: 22px;
   border-bottom: 1px solid var(--rule);
 }
+/* 「返回」：整块按钮化——加边框与内边距，点击范围即视觉范围 */
 .back {
-  font: 400 11px var(--mono);
-  letter-spacing: .14em;
-  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font: 500 11.5px var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: var(--ink);
+  transition: border-color .2s ease;
 }
 .back i {
-  width: 18px; height: 1px; background: var(--ink);
+  width: 20px; height: 1px; background: var(--ink);
   transition: width .22s ease;
 }
-.back:hover i { width: 28px; }
+.back:hover { border-color: var(--ink); }
+.back:hover i { width: 30px; }
 .d-nav { display: flex; gap: 18px; }
 .d-nav a {
   font: 400 10.5px var(--mono);

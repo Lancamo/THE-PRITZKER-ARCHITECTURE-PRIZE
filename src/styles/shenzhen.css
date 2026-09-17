@@ -1,12 +1,15 @@
 /* shenzhen.css · 深圳章节 —— 以独立模块（assets/shenzhen/）整幅嵌入：
-   外框只负责「占一屏 + 底色衔接」，模块内保留其完整版式与交互 */
+   章节头部沿用主站 sec-head 规范（02 序号与数据总览同款），
+   地图区占满剩余一屏；模块内保留其完整版式与交互 */
 .sz-sec{
-  max-width:none;
-  margin:0;
-  padding:0;
   height:100vh;
-  min-height:620px;
-  background:#E8E8E8;               /* 与模块底色、主站纸面同值，衔接无接缝 */
+  display:flex;
+  flex-direction:column;
+}
+.sz-sec .sz-stage{
+  flex:1 1 auto;
+  min-height:0;
+  margin-top:clamp(14px,2.4vh,26px);
 }
 .sz-sec iframe{
   display:block;

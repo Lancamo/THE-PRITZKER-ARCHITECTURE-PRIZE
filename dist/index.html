@@ -695,11 +695,11 @@ body.is-archive-open{background:var(--night);}
 #archive .foot-grid a:hover{border-bottom-color:var(--night-ink);}
 #archive .foot-logo{filter:invert(1);}
 
-/* 首页退场：时间轴左移淡出、页脚右移淡出 */
-#home.is-exit .dash-tl{transform:translateX(-7%);opacity:0;transition:transform .68s var(--ease),opacity .68s var(--ease);}
+/* 首页退场：深圳章节（新的末屏）左移淡出、页脚右移淡出；数据区只淡出、不再位移 */
+#home.is-exit .sz-sec{transform:translateX(-7%);opacity:0;transition:transform .68s var(--ease),opacity .68s var(--ease);}
 #home.is-exit #foot{transform:translateX(7%);opacity:0;transition:transform .68s var(--ease),opacity .68s var(--ease);}
-#home.is-exit #hero,#home.is-exit .dash-charts{opacity:0;transition:opacity .6s var(--ease);}
-#home .dash-tl,#home #foot,#home #hero,#home .dash-charts{transition:transform .55s var(--ease),opacity .55s var(--ease);}
+#home.is-exit #hero,#home.is-exit #dash-sec{opacity:0;transition:opacity .6s var(--ease);}
+#home .sz-sec,#home #foot,#home #hero,#home #dash-sec{transition:transform .55s var(--ease),opacity .55s var(--ease);}
 
 /* ---------------- 总起页 ---------------- */
 .ar-cover{
@@ -1203,21 +1203,24 @@ body.is-archive-open{background:var(--night);}
 }
 
 /* shenzhen.css · 深圳章节 —— 以独立模块（assets/shenzhen/）整幅嵌入：
-   外框只负责「占一屏 + 底色衔接」，模块内保留其完整版式与交互 */
+   章节头部沿用主站 sec-head 规范（02 序号与数据总览同款），
+   地图区占满剩余一屏；模块内保留其完整版式与交互 */
 .sz-sec{
-  max-width:none;
-  margin:0;
-  padding:0;
   height:100vh;
-  min-height:620px;
-  background:#EFEFED;               /* 与模块自身底色一致，章节成整幅 */
+  display:flex;
+  flex-direction:column;
+}
+.sz-sec .sz-stage{
+  flex:1 1 auto;
+  min-height:0;
+  margin-top:clamp(14px,2.4vh,26px);
 }
 .sz-sec iframe{
   display:block;
   width:100%;
   height:100%;
   border:0;
-  background:#EFEFED;
+  background:#E8E8E8;
 }
 </style>
 </head>
@@ -1304,7 +1307,13 @@ body.is-archive-open{background:var(--night);}
 
     <!-- 深圳 · 普利兹克建筑奖得主作品分布：独立模块（assets/shenzhen/）整幅嵌入 -->
     <section class="sec sz-sec" id="sz-sec" aria-label="深圳 · 普利兹克建筑奖得主作品分布">
-      <iframe id="sz-frame" src="../assets/shenzhen/index.html" title="深圳 · 普利兹克建筑奖得主作品分布" loading="lazy"></iframe>
+      <div class="sec-head ui-hair">
+        <h2 class="sec-title"><span class="idx ui-cap">02</span>深圳 · 普利兹克建筑奖得主作品分布<span class="en ui-cap">Pritzker Prize Architecture in Shenzhen</span></h2>
+        <p class="sec-note ui-cap">10 位建筑师 · 11 件作品 · 2007—2028</p>
+      </div>
+      <div class="sz-stage">
+        <iframe id="sz-frame" src="../assets/shenzhen/index.html" title="深圳 · 普利兹克建筑奖得主作品分布" loading="lazy"></iframe>
+      </div>
     </section>
 
     <footer class="sec" id="foot"></footer>
@@ -3667,6 +3676,17 @@ window.__DATA__ = {"editions":[{"year":1979,"laureates":[{"name_cn":"菲利普·
       if (NS.archive.isOpen()) return;
       if (atBottom() && ev.deltaY > 16) fire();
     }, { passive: true });
+
+    /* 深圳章节是 iframe：其中的滚轮经 postMessage 转交本页——
+       平时代为滚动页面，滚到底部继续下滑则进入时间轴档案（跨文档滚轮不冒泡） */
+    window.addEventListener("message", function (ev) {
+      if (NS.archive.isOpen()) return;
+      var d = ev.data;
+      if (!d || d.type !== "sz-wheel" || typeof d.dy !== "number") return;
+      if (d.dy > 16 && atBottom()) { fire(); return; }
+      /* 即时滚动（主站全局为 smooth，不指定 instant 会拖泥带水） */
+      window.scrollBy({ top: d.dy, left: 0, behavior: "instant" });
+    });
 
     var touchY = null;
     window.addEventListener("touchstart", function (ev) { touchY = ev.touches[0].clientY; }, { passive: true });

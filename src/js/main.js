@@ -192,6 +192,17 @@
       if (atBottom() && ev.deltaY > 16) fire();
     }, { passive: true });
 
+    /* 深圳章节是 iframe：其中的滚轮经 postMessage 转交本页——
+       平时代为滚动页面，滚到底部继续下滑则进入时间轴档案（跨文档滚轮不冒泡） */
+    window.addEventListener("message", function (ev) {
+      if (NS.archive.isOpen()) return;
+      var d = ev.data;
+      if (!d || d.type !== "sz-wheel" || typeof d.dy !== "number") return;
+      if (d.dy > 16 && atBottom()) { fire(); return; }
+      /* 即时滚动（主站全局为 smooth，不指定 instant 会拖泥带水） */
+      window.scrollBy({ top: d.dy, left: 0, behavior: "instant" });
+    });
+
     var touchY = null;
     window.addEventListener("touchstart", function (ev) { touchY = ev.touches[0].clientY; }, { passive: true });
     window.addEventListener("touchmove", function (ev) {

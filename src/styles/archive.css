@@ -22,11 +22,11 @@ body.is-archive-open{background:var(--night);}
 #archive .foot-grid a:hover{border-bottom-color:var(--night-ink);}
 #archive .foot-logo{filter:invert(1);}
 
-/* 首页退场：时间轴左移淡出、页脚右移淡出 */
-#home.is-exit .dash-tl{transform:translateX(-7%);opacity:0;transition:transform .68s var(--ease),opacity .68s var(--ease);}
+/* 首页退场：深圳章节（新的末屏）左移淡出、页脚右移淡出；数据区只淡出、不再位移 */
+#home.is-exit .sz-sec{transform:translateX(-7%);opacity:0;transition:transform .68s var(--ease),opacity .68s var(--ease);}
 #home.is-exit #foot{transform:translateX(7%);opacity:0;transition:transform .68s var(--ease),opacity .68s var(--ease);}
-#home.is-exit #hero,#home.is-exit .dash-charts{opacity:0;transition:opacity .6s var(--ease);}
-#home .dash-tl,#home #foot,#home #hero,#home .dash-charts{transition:transform .55s var(--ease),opacity .55s var(--ease);}
+#home.is-exit #hero,#home.is-exit #dash-sec{opacity:0;transition:opacity .6s var(--ease);}
+#home .sz-sec,#home #foot,#home #hero,#home #dash-sec{transition:transform .55s var(--ease),opacity .55s var(--ease);}
 
 /* ---------------- 总起页 ---------------- */
 .ar-cover{
